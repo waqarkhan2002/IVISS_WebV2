@@ -1,0 +1,234 @@
+﻿@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet"
+          href="~/assets/css/boostrap.min.css" />
+    <link rel="stylesheet" href="~/assets/css/custom.css" />
+    <link rel="stylesheet" href="~/assets/css/responsive.css" />
+
+    <script src="~/assets/js/Jquery.min.js"></script>
+    <style>
+
+    
+
+</style>
+</head>
+<body class="login-view">
+ 
+@*<iframe class="responsive-iframe" src="http://192.168.1.145/stw-cgi/video.cgi?msubmenu=stream&action=view" ></iframe>*@
+  @*<iframe width="200" height="200" src=http://192.168.1.145/stw-cgi/video.cgi?msubmenu=stream&action=view" style="-webkit-transform:scale(0.5);-moz-transform-scale(0.5);"></iframe>*@
+</div>
+    <div class="wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light p-0 pl-3">
+            <a class="navbar-brand" href="#">
+                <img src="~/assets/images/logos/TaskManagementLogo.png"
+                     class="img-fluid" />
+            </a>
+            <!-- <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button> -->
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 order--2">
+                    <div class="content-side pt-3">
+                        <h3 class="im-notice">**** IMPORTANT DISCLAIMER ****</h3>
+                       
+                        <p class="im-description">
+                            IVISS System is designed to aid the operator to visually inspect
+                            the under carriage of the vehicle before entering the facility.
+                            IVISS System is NOT designed to automatically identify presence
+                            of explosives or other contraband without the interaction or
+                            visual review by the operator. The operator assumes all
+                            responsibility of thoroughly inspecting the vehicle before
+                            letting the vehicle into the facility. TASC Management or its
+                            affiliates shall not be held responsible of any incident
+                            occurring due to lack of judgement by the actual operator of the
+                            IVISS System.
+                        </p>
+                    </div>
+
+                    <!-- <div class="form-check terms-text">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                      />
+                      <label class="form-check-label" for="exampleCheck1"
+                        >I agree to license plate recognition agreement</label
+                      >
+                    </div> -->
+                    <div class="custom-control custom-checkbox mb-3 terms-text">
+                        <input type="checkbox"
+                               class="custom-control-input"
+                               id="customCheck"
+                               name="example1" onchange="EnableDisable();" />
+                        <label id="mainTabNavlAgreeTerms" class="custom-control-label" for="customCheck">&nbsp; I agree to license plate recognition agreement</label>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 form-side-bg">
+                    <div class="form-side">
+                        <div class="logo-login text-center ml-3">
+                            <img src="~/assets/images/logos/IVISSLogo.png"
+                                 class=""
+                                 width="330" />
+                        </div>
+
+
+                        <div class="form-row mt-5">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div id="divLogin" class="form-row pt-5 p-3">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">User Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-8">
+                                        <input type="email"
+                                               class="form-control form-input"
+                                               id="txtUsername"
+                                               aria-describedby=""
+                                               placeholder="Username" />
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-8 mt-4">
+                                        <input type="password"
+                                               class="form-control form-input"
+                                               id="txtPassword"
+                                               aria-describedby=""
+                                               placeholder="*****" />
+                                    </div>
+
+                                    <div class="col-md-3"></div>
+                                    <div class="col-md-8">
+                                        <button type="button" class="btn btn-primary d-block btn-auth mt-5" onclick="LoginSite()">
+                                            Login
+                                        </button>
+
+                                        <button class="btn btn-primary d-block btn-login-cancel mt-5">
+                                            Cancel
+                                        </button>
+                                        <br/>
+                                        <p id="txtError" style="color:red;font-weight:bold;text-align:center;"></p>
+
+                                        @*  <div class="form-row pt-5 p-3" >
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-7">
+                                        <p id="txtError" style="color:red"></p>
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                        </div>*@
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+
+
+                    </div>
+
+
+                    <span id="lblAgreeTerms" class="tc-valid">Please agree the terms and condition before logging in</span>
+
+                   
+                </div>
+            </div>
+        </div>
+        <section class="p-2"></section>
+    </div>
+</body>
+
+
+<script>
+
+    $(document).ready(function() {
+
+        disableElements($('#divLogin').children());
+
+    });
+
+    function EnableDisable()
+    {
+    if (document.getElementById("customCheck").checked) {
+
+        enableElements($('#divLogin').children());
+        document.getElementById("lblAgreeTerms").style.display = "none";
+    }
+    else {
+          disableElements($('#divLogin').children());
+          document.getElementById("lblAgreeTerms").style.display = "block";
+    }
+    }
+
+    function disableElements(el) {
+
+        for (var i = 0; i < el.length; i++) {
+            el[i].disabled = true;
+
+            disableElements(el[i].children);
+        }
+    }
+
+    function enableElements(el) {
+        for (var i = 0; i < el.length; i++) {
+            el[i].disabled = false;
+
+            enableElements(el[i].children);
+        }
+    }
+    function LoginSite() {
+
+        var user = $("#txtUsername").val();
+        var pass = $("#txtPassword").val();
+
+        if (user == '' || pass == '') {
+            document.getElementById("txtError").innerHTML = "Username and Password can not be left blank";
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/Account/LoginSite",
+            data: { "username": $("#txtUsername").val(), "pass": $("#txtPassword").val() },
+            success: function(response) {
+                if (response != null) {
+                    if (response.id != -999) {
+                        window.localStorage.setItem("authtoken", response.jwtToken);
+                         window.location.href = '/Home/Index';
+                    }
+                    else {
+                        document.getElementById("txtError").innerHTML = "Unable to login, Please verify username and password";
+                    }
+                }
+
+            },
+            failure: function(response) {
+                document.getElementById("txtError").innerHTML = response;
+            },
+            error: function(response) {
+                document.getElementById("txtError").innerHTML = response;
+            }
+        });
+    }
+</script>
+</html>

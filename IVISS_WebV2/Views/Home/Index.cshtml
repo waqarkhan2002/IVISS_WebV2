@@ -1,0 +1,3203 @@
+﻿@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="~/assets/css/custom.css" />
+    <link rel="stylesheet" href="~/assets/css/responsive.css" />
+    <link rel="stylesheet"
+          href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" />
+
+    <link rel="stylesheet"
+          href="~/assets/css/Datatable.css" />
+    <link rel="stylesheet"
+          href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" />
+
+    <link rel="stylesheet"
+          href="~/assets/css/sweetalert2.css" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" />
+
+    <link rel="stylesheet"
+          href="~/css/arabicKeyboard.css" />
+
+
+    <script src="~/libs/jquery-3.6.0.min.js"></script>
+    <script src="~/libs/sockrest.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+
+    @*<link href="https://cdn.bootcss.com/balloon-css/0.5.0/balloon.min.css" rel="stylesheet">*@
+    <link href="~/assets/css/jquery.magnify.css" rel="stylesheet">
+    <link href="~/assets/css/snack.css" rel="stylesheet">
+    <link href="~/assets/css/snack-helper.css" rel="stylesheet">
+    <link href="~/assets/css/docs.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via  -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="~/assets/js/sweetalert2.js"></script>
+    <script src="~/js/arabicKeyboard.js"></script>
+    @*<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>*@
+
+
+    <script src="~/assets/js/bootstrap-timepicker.js"></script>
+
+    <style>
+        .wrap {
+            width: 100%;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .frame {
+            width: 1280px;
+            height: 786px;
+            border: 0;
+            -ms-transform: scale(0.25);
+            -moz-transform: scale(0.25);
+            -o-transform: scale(0.25);
+            -webkit-transform: scale(0.25);
+            transform: scale(0.25);
+            -ms-transform-origin: 0 0;
+            -moz-transform-origin: 0 0;
+            -o-transform-origin: 0 0;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+
+        img {
+            color: darkred;
+            font: 18px Impact;
+            border: 1px solid lightgrayk;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="divMain" class="wrapper" style="display:none">
+        <div class="topBar">
+            <div class="row">
+                <div class="col-md-4">
+                    Convex Integrated Vehicle Inspection & Security System (V1.0.0)
+                    <span id="lblTodayDate">5/16/2022 12:52:36 PM</span>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="dropdown dd-alpr">
+                        <button class="btn btn-sm btn-secondary dropdown-toggle dd-toggle"
+                                type="button"
+                                id="dropdownMenuButton"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false">
+                            Additional ALPR
+                        </button>
+                        <div class="dropdown-menu w-100"
+                             aria-labelledby="dropdownMenuButton">
+                            <div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="dd-title">
+                                            LECENSE PLATE (Additional ALPR)
+                                        </div>
+                                        <div class="dd-lp-image"></div>
+                                        <div class="dd-form-box">
+                                            <div class="form-group mt-3">
+                                                <label for="">License Plate Number</label>
+                                                <input type="text"
+                                                       class="form-control form-input"
+                                                       id=""
+                                                       aria-describedby=""
+                                                       placeholder="" />
+                                            </div>
+                                            <div class="form-group mb-0 pb-4">
+                                                <label for="">ARABIC LICENSE PLATE</label>
+                                                <input type="text"
+                                                       class="form-control form-input"
+                                                       id=""
+                                                       aria-describedby=""
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+
+                                        <button class="btn btn-success d-block btn-auth">
+                                            VISITOR
+                                        </button>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <table class="table table-bordered w-100 dd-alpr-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Gate</th>
+                                                    <th>Plate Number</th>
+                                                    <th>Arabic</th>
+                                                    <th>Date</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="d-flex">
+                                            <div class="dd-down-text">
+                                                Double click the row above to see its License plate
+                                                Image
+                                            </div>
+                                            <div class="dd-table-img-box"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-right">Current Logged In: Admin</div>
+                </div>
+            </div>
+        </div>
+        <section class="px-2 p-0">
+            <ul class="nav nav-tabs" id="mainTabNav" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active"
+                       id="home-tab"
+                       data-toggle="tab"
+                       href="#dashboard_tab"
+                       role="tab"
+                       aria-controls="home"
+                       aria-selected="true">Dashboard</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       id="profile-tab"
+                       data-toggle="tab"
+                       href="#settings_tab"
+                       role="tab"
+                       aria-controls="profile"
+                       aria-selected="false">Settings</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       id="contact-tab"
+                       data-toggle="tab"
+                       href="#search_tab"
+                       role="tab"
+                       aria-controls="contact"
+                       aria-selected="false">Search</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       id="contact-tab"
+                       data-toggle="tab"
+                       href="#viewDetail_tab"
+                       role="tab"
+                       aria-controls="contact"
+                       aria-selected="false">View Details</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       id="contact-tab"
+                       data-toggle="tab"
+                       href="#image_tab"
+                       role="tab"
+                       aria-controls="contact"
+                       aria-selected="false">Image</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active"
+                     id="dashboard_tab"
+                     role="tabpanel"
+                     aria-labelledby="profile-tab">
+                    <div class="mainDashboard">
+                        <div class="form-row">
+                            <div class="col-lg-2 col-md-3 pt-4">
+                                <div class="driver-box mt-2">
+                                    <div class="title d-flex justify-content-between">
+                                        DRIVER
+                                        <span>
+                                            <i class="fas fa-search"></i></i
+                                            >
+                                        </span>
+                                    </div>
+                                    <div class="driver-video wrap">
+
+                                        <img id="imgDriver" src="http://192.168.1.210/scapture" width="100%" />
+
+
+
+                                        @*<iframe class="frame" src="Privacy"></iframe>*@
+                                        <!-- <video controls class="wid_100">
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.mp4"
+                                            type="video/mp4"
+                                          />
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.ogg"
+                                            type="video/ogg"
+                                          />
+                                        </video> -->
+                                    </div>
+                                    <div class="driver-activity">Current Driver Activity</div>
+                                </div>
+
+                                <div class="scene-box mt-4">
+                                    <div class="title">
+                                        DRIVER <span></span>
+                                    </div>
+                                    <div class="driver-video">
+                                        <!-- <video controls class="wid_100">
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.mp4"
+                                            type="video/mp4"
+                                          />
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.ogg"
+                                            type="video/ogg"
+                                          />
+                                          Your browser does not support the video tag.
+                                        </video> -->
+                                    </div>
+                                    <div class="driver-activity">Current Driver Activity</div>
+                                </div>
+
+                                <div class="license-box mt-4">
+                                    <div class="title d-flex justify-content-between">License Plate <span><i class="fas fa-search"></i></span></div>
+                                    <div class="driver-video wrap">
+                                        <img data-magnify="gallery" data-caption="License Plate" id="imgLP" width="100%" alt="No stream present" />
+                                    </div>
+                                    <div class="driver-activity">Current License Plate</div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <img src="assets/images/logos/TaskManagementLogo.png"
+                                         alt=""
+                                         class="img-fluid" />
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-9">
+                                <div class="mainImages-box">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="scanner-1">
+                                                <div class="title">Default Title</div>
+                                                <div class="scanner-img-1"></div>
+                                                <label class="d-block text-center"
+                                                       for="BrightnessSlider">Brightness</label>
+                                                <input id="BrightnessSlider"
+                                                       type="range"
+                                                       value="0"
+                                                       min="0"
+                                                       max="100" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="scanner-2">
+                                                <div class="title">Composite Image</div>
+                                                <div class="scanner-img-2"></div>
+
+                                                <ul class="nav nav-tabs"
+                                                    id="bottomTabs"
+                                                    role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active"
+                                                           id="original-tab"
+                                                           data-toggle="tab"
+                                                           href="#originalTab"
+                                                           role="tab"
+                                                           aria-controls="originalTab"
+                                                           aria-selected="true">Original</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           id="high-tab"
+                                                           data-toggle="tab"
+                                                           href="#highTab"
+                                                           role="tab"
+                                                           aria-controls="highTab"
+                                                           aria-selected="false">High</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           id="medium-tab"
+                                                           data-toggle="tab"
+                                                           href="#mediumTab"
+                                                           role="tab"
+                                                           aria-controls="mediumTab"
+                                                           aria-selected="false">Medium</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           id="low-tab"
+                                                           data-toggle="tab"
+                                                           href="#lowTab"
+                                                           role="tab"
+                                                           aria-controls="lowTab"
+                                                           aria-selected="false">Low</a>
+                                                    </li>
+                                                </ul>
+                                                <!-- <div class="tab-content" id="myTabContent">
+                                                      <div
+                                                        class="tab-pane fade show active"
+                                                        id="originalTab"
+                                                        role="tabpanel"
+                                                        aria-labelledby="home-tab"
+                                                      >
+                                                        ...
+                                                      </div>
+                                                      <div
+                                                        class="tab-pane fade"
+                                                        id="highTab"
+                                                        role="tabpanel"
+                                                        aria-labelledby="profile-tab"
+                                                      >
+                                                        ...
+                                                      </div>
+                                                      <div
+                                                        class="tab-pane fade"
+                                                        id="mediumTab"
+                                                        role="tabpanel"
+                                                        aria-labelledby="contact-tab"
+                                                      >
+                                                        ...
+                                                      </div>
+                                                      <div
+                                                        class="tab-pane fade"
+                                                        id="lowTab"
+                                                        role="tabpanel"
+                                                        aria-labelledby="contact-tab"
+                                                      >
+                                                        ...
+                                                      </div>
+                                                    </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="col-lg-5 col-md-12">
+                                <div class="form-content p-2">
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="">License Plate Number</label>
+                                                <input type="text"
+                                                       class="form-control form-input"
+                                                       id=""
+                                                       aria-describedby=""
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="">Arabic License Plate</label>
+                                                <input type="text"
+                                                       class="form-control form-input"
+                                                       id=""
+                                                       aria-describedby=""
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="">Authorization</label>
+                                                <button class="btn btn-success d-block btn-auth">
+                                                    Visitor
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="top-head-2">Relay Controls</h4>
+
+                                    <div class="form-row controls">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="">ACCESS ARM</label>
+                                                <label for="">الوصول إلى الذراع</label>
+                                                <label class="switch switch-btn">
+                                                    <input type="checkbox" />
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="">TIRE SPIKES</label>
+                                                <label for="">مسمار الإطارات</label>
+                                                <label class="switch switch-btn">
+                                                    <input type="checkbox" />
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="">BOLLARD</label>
+                                                <label for="">مربط الحبال</label>
+                                                <label class="switch switch-btn">
+                                                    <input type="checkbox" />
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="">ROAD BLOCKER</label>
+                                                <label for="">حاجز الطريق</label>
+                                                <label class="switch switch-btn">
+                                                    <input type="checkbox" />
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="top-head-2">
+                                        Recording Controls
+
+                                        <div class="form-check form-check-inline">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   id="exampleCheck1" />
+                                            <label class="form-check-label size-12"
+                                                   for="exampleCheck1">Auto FOD Enabled</label>
+                                        </div>
+
+                                        <span class="run-afod">Click to run AFOD</span>
+                                    </h4>
+
+                                    <div class="form-row controls">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="">Auto</label>
+                                                <label class="switch switch-btn">
+                                                    <input type="checkbox" />
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                        <div class="col-md-3">
+                                            <div class="logo-table">
+                                                <img src="assets/images/logos/IVISSLogo.png" class="img-fluid">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-row mt-3">
+
+                                        <div class="col-md-12">
+                                            <div class="cmm-table-box mt-2">
+                                                <table id="tblData" class="table table-bordered table-hover dt-responsive dt-cmm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Gate</th>
+                                                            <th>Plate Number</th>
+                                                            <th>Arabic</th>
+                                                            <th>Date</th>
+                                                            <th>Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade"
+                     id="settings_tab"
+                     role="tabpanel"
+                     aria-labelledby="contact-tab">
+                    <div class="page-wrapper chiller-theme toggled">
+                        <!-- <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+                          <i class="fas fa-bars"></i>
+                        </a> -->
+                        <nav id="sidebar" class="sidebar-wrapper">
+                            <div class="sidebar-content">
+                                <!-- <div class="sidebar-brand">
+                                  <a href="#"></a>
+                                  <div id="close-sidebar">
+                                    <i class="fas fa-times"></i>
+                                  </div>
+                                </div> -->
+                                <!-- sidebar-search  -->
+                                <div class="sidebar-menu">
+                                    <ul>
+                                        <li class="sidebar-dropdown" onclick="SideTabClick('settings')">
+                                            <a class="settings-tab" id="FillSettingsData">
+                                                <i class="fas fa-cog"></i>
+                                                <span>Settings</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-dropdown" onclick="SideTabClick('user-management')">
+                                            <a class="user-managemnt-tab">
+                                                <i class="fas fa-user"></i>
+                                                <span>User Managment</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-dropdown" onclick="SideTabClick('reports')">
+                                            <a class="reports-tab">
+                                                <i class="fas fa-file-alt"></i>
+                                                <span>Reports</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-dropdown" onclick="SideTabClick('visitor-data-entry')">
+                                            <a class="visitor-data-entry-tab" href="#">
+                                                <i class="fas fa-database"></i>
+                                                <span>Visitor Data Entry</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-dropdown" onclick="SideTabClick('theme')">
+                                            <a class="theme-tab" href="#">
+                                                <i class="fas fa-palette"></i>
+                                                <span>Theme</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- sidebar-menu  -->
+                            </div>
+                        </nav>
+                        <!-- sidebar-wrapper  -->
+                        <main class="page-content">
+                            <div class="container-fluid innerContainer p-1 visitor-data-entry-content">
+                                <div class="visitor-de">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="setting-top-btns mt-0 d-flex justify-content-between">
+                                                <div class="d-flex">
+                                                    <div class="top-search-text">
+                                                        Please clickon search button to edit update
+                                                        visitor
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <button class="txt-btn active" onclick="SaveVisitor();">Save</button>
+                                                    <button type="button" onclick="ResetVisitor()" class="txt-btn">New</button>
+                                                    <button type="button" onclick="DeleteVisitor()" class="txt-btn active">Delete</button>
+                                                    <button type="button" onclick="ResetVisitor()" class="txt-btn">Reset</button>
+                                                    <button class="txt-btn" onclick="OpenSearchDialog();">Search</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form id="frmVisitorManagement">
+                                        <div class="row mt-2 visitor-fields">
+                                            <div class="col-md-6">
+                                                <div class="d-flex top-left-field">
+                                                    <label class="mendatory-text">License Plate #</label>
+                                                    <input type="text" maxlength="20"
+                                                           class="form-control form-input mx-3"
+                                                           id="txtLPVisitor"
+                                                           placeholder="" required />
+                                                    <div class="invalid-feedback">Please enter valid License plate.</div>
+                                                    <input type="text" maxlength="20"
+                                                           class="form-control form-input mx-3"
+                                                           id="txtLPVisitorArabic"
+                                                           placeholder="" />
+                                                </div>
+                                                <div class="d-flex top-left-field">
+                                                    <label class="mendatory-text">First Name *</label>
+                                                    <input type="text" maxlength="20"
+                                                           class="form-control form-input"
+                                                           id="txtVisitorFirstName"
+                                                           placeholder="" required />
+                                                    <div class="invalid-feedback">Please enter valid first name.</div>
+                                                </div>
+
+                                                <div class="d-flex top-left-field">
+                                                    <label class="MiddleName">Middle Name </label>
+                                                    <input type="text" maxlength="20"
+                                                           class="form-control form-input"
+                                                           id="txtVisitorMiddleName"
+                                                           placeholder="" />
+                                                </div>
+
+                                                <div class="d-flex top-left-field">
+                                                    <label class="">Organization</label>
+                                                    <input type="text" maxlength="20"
+                                                           class="form-control form-input"
+                                                           id="txtVisitorOrganization"
+                                                           placeholder="" />
+                                                </div>
+
+                                                <div class="d-flex top-left-field">
+                                                    <label class="">Facility</label>
+                                                    <input type="text" maxlength="20"
+                                                           class="form-control form-input"
+                                                           id="txtVisitorFacility"
+                                                           placeholder="" />
+                                                </div>
+
+                                                <div class="d-flex top-left-field">
+                                                    <label class="">Mobile No.</label>
+                                                    <input type="text" maxlength="20"
+                                                           class="form-control form-input"
+                                                           id="txtVisitorMobileNo"
+                                                           placeholder="" />
+                                                </div>
+
+                                                <div class="d-flex top-left-field">
+                                                    <label class="">Email</label>
+                                                    <input type="text" maxlength="50"
+                                                           class="form-control form-input"
+                                                           id="txtVisitorEmail"
+                                                           placeholder="" />
+                                                </div>
+
+                                                <div class="d-flex top-left-field">
+                                                    <label class="">City</label>
+                                                    <input type="text" maxlength="20"
+                                                           class="form-control form-input"
+                                                           id="txtVisitorCity"
+                                                           placeholder="" />
+                                                </div>
+
+                                                <div class="uploadBox">
+                                                    <div class="upload-btn-wrapper">
+                                                        <button class="bulk-up-btn">Bulk Upload</button>
+                                                        <input type="file" name="myfile" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="d-flex top-left-field">
+                                                    <label class="">Country</label>
+                                                    <input type="text" maxlength="20"
+                                                           class="form-control form-input mx-3"
+                                                           id="txtVisitorCountry"
+                                                           placeholder="" />
+
+                                                </div>
+                                                <div class="d-flex top-left-field">
+                                                    <label class="">Phone No.</label>
+                                                    <input type="text" maxlength="15"
+                                                           class="form-control form-input"
+                                                           id="txtVisitorPhone"
+                                                           placeholder="" />
+                                                </div>
+                                                <div class="d-flex top-left-field">
+                                                    <label class="">Manager</label>
+                                                    <input type="text" maxlength="20"
+                                                           class="form-control form-input"
+                                                           id="txtVisitorManager"
+                                                           placeholder="" />
+                                                </div>
+
+                                                <div class="d-flex top-left-field">
+                                                    <label class="">Classification</label>
+                                                    <select id="selVisitorClassification"
+                                                            class="form-control form-control-sm filter-dp">
+
+                                                        <option selected>VISITOR</option>
+                                                        <option>EMPLOYEE</option>
+                                                        <option>RESIDENT</option>
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="d-flex top-left-field">
+                                                    <label class="">Authorization</label>
+                                                    <select id="selVisitorAuthorization"
+                                                            class="form-control form-control-sm filter-dp">
+
+                                                        <option selected>AUTHORIZED</option>
+                                                        <option>PROHIBITED</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="d-flex top-left-field">
+                                                    <label class="mendatory-text">Last Name *</label>
+                                                    <input type="text" maxlength="20"
+                                                           class="form-control form-input"
+                                                           id="txtVisitorLastName"
+                                                           placeholder="" required />
+                                                    <div class="invalid-feedback">Please enter valid last name.</div>
+                                                </div>
+
+                                                <div class="d-flex top-left-field">
+                                                    <label class="">Address</label>
+                                                    <input type="text" maxlength="200"
+                                                           class="form-control form-input"
+                                                           id="txtVisitorAddress"
+                                                           placeholder="" />
+                                                </div>
+
+                                                <div class="d-flex top-left-field">
+                                                    <label class="">Region</label>
+                                                    <input type="text" maxlength="20"
+                                                           class="form-control form-input"
+                                                           id="txtVisitorRegion"
+                                                           placeholder="" />
+                                                </div>
+
+
+                                                <div class="changePictureBox">
+                                                    <label>Select Picture</label>
+                                                    <div class="img-change">
+                                                        <img id="img-up" src="" alt="" class="img-fluid" />
+                                                    </div>
+                                                    <div class="change-img-wrapper">
+                                                        <button class="upload-img-btn">Change Picture</button>
+                                                        <input type='file' onchange="readURL(this);" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="container-fluid innerContainer p-1 reports-content d-none">
+                                <div class="searchBox">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="setting-top-btns mt-0 d-flex justify-content-between">
+                                                <div></div>
+                                                <div class="d-flex">
+                                                    <div class="top-search-text">Search By</div>
+                                                    <div class="top-checkboxes d-flex">
+                                                        <div class="custom-control custom-checkbox form-check-inline">
+                                                            <input type="checkbox"
+                                                                   class="custom-control-input"
+                                                                   id="customCheck12"
+                                                                   name="example1" />
+                                                            <label class="custom-control-label"
+                                                                   for="customCheck12">&nbsp; License Plate</label>
+                                                        </div>
+
+                                                        <div class="custom-control custom-checkbox form-check-inline">
+                                                            <input type="checkbox"
+                                                                   class="custom-control-input"
+                                                                   id="customCheck13"
+                                                                   name="example1" />
+                                                            <label class="custom-control-label"
+                                                                   for="customCheck13">&nbsp; Date</label>
+                                                        </div>
+
+                                                        <div class="custom-control custom-checkbox form-check-inline">
+                                                            <input type="checkbox"
+                                                                   class="custom-control-input"
+                                                                   id="customCheck14"
+                                                                   name="example1" />
+                                                            <label class="custom-control-label"
+                                                                   for="customCheck14">&nbsp; Time</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <button class="txt-btn active">View Report</button>
+                                                    <button class="txt-btn">Reset</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-3">
+                                            <div class="d-flex top-left-field">
+                                                <label class="mendatory-text">License Plate #</label>
+                                                <input type="text"
+                                                       class="form-control form-input"
+                                                       id=""
+                                                       placeholder="" />
+                                            </div>
+                                            <div class="d-flex top-left-field">
+                                                <label class="mendatory-text">Arabic Plate #</label>
+                                                <input type="text"
+                                                       class="form-control form-input"
+                                                       id=""
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="d-flex top-left-field">
+                                                <label class="mendatory-text">Gate</label>
+                                                <select id=""
+                                                        class="form-control form-control-sm filter-dp">
+                                                    <option selected>Choose...</option>
+                                                    <option>...</option>
+                                                </select>
+                                            </div>
+                                            <div class="d-flex top-left-field"></div>
+                                            <div class="custom-control custom-checkbox text-right mt-3">
+                                                <input type="checkbox"
+                                                       class="custom-control-input"
+                                                       id="customCheck122"
+                                                       name="example1" />
+                                                <label class="custom-control-label"
+                                                       for="customCheck122">&nbsp; Additional ALPR</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="d-flex top-left-field">
+                                                <label class="mendatory-text">Date From</label>
+                                                <input type="text"
+                                                       id=""
+                                                       placeholder="Select date"
+                                                       class="form-control datepicker filter-dp form-control-sm filter-dp" />
+
+                                                <label class="mendatory-text">Date To</label>
+                                                <input type="text"
+                                                       id=""
+                                                       placeholder="Select date"
+                                                       class="form-control datepicker filter-dp form-control-sm filter-dp" />
+                                            </div>
+                                            <div class="d-flex top-left-field">
+                                                <label class="mendatory-text">Time From</label>
+                                                <div class="input-group timeInit filter-dp" id="">
+                                                    <input type="text"
+                                                           name="end_time"
+                                                           value="12:31:00 AM"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="End time"
+                                                           title=""
+                                                           required=""
+                                                           id="" />
+                                                    <div class="input-group-addon input-group-append">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-clock"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <label class="mendatory-text">Time To</label>
+                                                <div class="input-group timeInit filter-dp" id="">
+                                                    <input type="text"
+                                                           name="end_time"
+                                                           value="12:31:00 AM"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="End time"
+                                                           title=""
+                                                           required=""
+                                                           id="" />
+                                                    <div class="input-group-addon input-group-append">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-clock"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="controlBox">
+                                    <div class="row">
+                                        <div class="col-md-12"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container-fluid innerContainer user-management-content d-none">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="setting-top-btns mt-2">
+                                            <button type="button" onclick="SaveUser()" class="txt-btn active">Save</button>
+                                            <button type="button" class="txt-btn" onclick=" ClearUser();">New User</button>
+                                            <button type="button" onclick=" ClearUser();" class="txt-btn">Reset</button>
+
+                                            <!-- <button class="btn btn-primary update-btn">
+                                              Update
+                                            </button> -->
+                                        </div>
+                                        <hr />
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="user-settings">
+                                            <div class="row">
+                                                <div class="col-md-12">
+
+                                                    <table id="tblUsers" class="table table-bordered table-hover  nowrap" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ID</th>
+                                                                <th>First Name</th>
+                                                                <th>Last Name</th>
+                                                                <th></th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <div class="row">
+                                                <div class="col-md-12" style="margin-bottom:10px;">
+                                                    <div id="divCurrentUserMode" class="user-title">Current Mode: New User</div>
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <form id="frmUserManagement">
+                                                <div class="row">
+                                                    <div class="col-md-1"></div>
+
+                                                    <div class="col-md-10">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="d-flex user-settings-field">
+                                                                    <label class="mendatory-text">First Name *</label>
+                                                                    <input type="text"
+                                                                           class="form-control form-input"
+                                                                           id="txtUserFirstName"
+                                                                           name="txtUserFirstName"
+                                                                           placeholder="" required />
+                                                                    <div class="invalid-feedback">Please enter valid first name.</div>
+                                                                </div>
+
+                                                                <div class="d-flex user-settings-field">
+                                                                    <label>Middle Name </label>
+                                                                    <input type="text"
+                                                                           class="form-control form-input"
+                                                                           id="txtUserMiddleName"
+                                                                           placeholder="" />
+                                                                </div>
+
+                                                                <div class="d-flex user-settings-field">
+                                                                    <label>Last Name </label>
+                                                                    <input type="text"
+                                                                           class="form-control form-input"
+                                                                           id="txtUserLastName"
+                                                                           placeholder="" />
+                                                                </div>
+                                                                <div class="d-flex user-settings-field">
+                                                                    <label>Phone</label>
+                                                                    <input type="text"
+                                                                           class="form-control form-input"
+                                                                           id="txtUserPhone"
+                                                                           name="txtUserPhone"
+                                                                           placeholder="" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="d-flex user-settings-field">
+                                                                    <label class="mendatory-text">ID *</label>
+                                                                    <input type="text"
+                                                                           class="form-control form-input"
+                                                                           id="txtUserName"
+                                                                           name="txtUserName"
+                                                                           required
+                                                                           placeholder="" />
+
+                                                                    <div class="invalid-feedback">Please enter valid username.</div>
+
+                                                                </div>
+                                                                <div class="d-flex user-settings-field">
+                                                                    <label class="mendatory-text">Password *</label>
+                                                                    <input type="password" required
+                                                                           class="form-control form-input"
+                                                                           id="txtUserPassword"
+                                                                           name="txtUserPassword"
+                                                                           placeholder="" />
+                                                                    <div class="invalid-feedback">Please enter valid password.</div>
+                                                                </div>
+                                                                <div class="d-flex user-settings-field">
+                                                                    <div class="form-check form-check-inline">
+                                                                        <input class="form-check-input"
+                                                                               type="radio"
+                                                                               name="rdoUserRole"
+                                                                               id="rdoUserRoleManager" onclick="FillUsers('manager');" />
+                                                                        <label class="form-check-label"
+                                                                               for="rdoUserRoleManager">
+                                                                            Manager
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline">
+                                                                        <input class="form-check-input"
+                                                                               type="radio"
+                                                                               name="rdoUserRole"
+                                                                               id="rdoUserRoleGuard" onclick="FillUsers('guard');"
+                                                                               checked />
+                                                                        <label class="form-check-label"
+                                                                               for="rdoUserRoleGuard">
+                                                                            Guard
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-1"></div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid innerContainer settings-content d-none">
+
+                                
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="setting-top-btns mt-2">
+                                            <button class="txt-btn">Restore Database</button>
+                                            <button class="txt-btn">Backup Database</button>
+                                            <button class="btn btn-primary update-btn" id="btnSaveSettings" onclick="SaveSettings();">
+                                                Update
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-12">
+                                    <div class="title-head">English Caption</div>
+                                  </div> -->
+                                <div class="settings-content">
+                                    <form class="needs-validation" id="frmSettings">
+                                         <div class="row">
+                                        <div class="col-md-12 port-control-form">
+                                            <div class="form-row">
+                                                <div class="col-lg-2">
+                                                    <div class="caption eng-caption">
+                                                        English Caption
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2 col-lg-2"></div>
+                                                        <div class="col-lg-4"></div>
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-2">
+                                                            <div class="port-text">Port</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                                                            <label for="firstName">Relay Control 1</label>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-3 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay1Settings"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   required="" />
+                                                        </div>
+                                                        <div class="col-lg-2 col-sm-1 col-xs-12">
+                                                            <div class="port-text-res">Port</div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay1SettingsPort"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   required="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-xs-12"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                                                            <label for="firstName">Relay Control 2</label>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-3 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay2Settings"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   required="" />
+                                                        </div>
+                                                        <div class="col-lg-2 col-sm-1 col-xs-12">
+                                                            <div class="port-text-res">Port</div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay2SettingsPort"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   required="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-xs-12"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                                                            <label for="firstName">Relay Control 3</label>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-3 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay3Settings"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   required="" />
+                                                        </div>
+                                                        <div class="col-lg-2 col-sm-1 col-xs-12">
+                                                            <div class="port-text-res">Port</div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay3SettingsPort"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                    />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-xs-12"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                                                            <label for="firstName">Relay Control 4</label>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-3 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay4Settings"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                    />
+                                                        </div>
+                                                        <div class="col-lg-2 col-sm-1 col-xs-12">
+                                                            <div class="port-text-res">Port</div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay4SettingsPort"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                    />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-xs-12"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2">
+                                                            <label for="firstName">IP Address</label>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtIpAddress"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   required/>
+                                                        </div>
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-2"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2">
+                                                            <label for="">Listen Port</label>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtListenPort"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   />
+                                                        </div>
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-2"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 port-control-form">
+                                            <div class="form-row">
+                                                <div class="col-lg-2">
+                                                    <div class="caption arabic-caption">
+                                                        Arabic Caption
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-4"></div>
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-2">
+                                                            <div class="port-text">Port</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                                                            <label for="txtRelay1SettingsArabic">Relay Control 1</label>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-3 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input keyboardInput"
+                                                                   dir="rtl" 
+                                                                   id="txtRelay1SettingsArabic"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   />
+                                                        </div>
+                                                        <div class="col-lg-2 col-sm-1 col-xs-12">
+                                                            <div class="port-text-res">Port</div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay1SettingsPortArabic"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   required="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-xs-12"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                                                            <label for="txtRelay2SettingsArabic">Relay Control 2</label>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-3 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay2SettingsArabic"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   />
+                                                        </div>
+                                                        <div class="col-lg-2 col-sm-1 col-xs-12">
+                                                            <div class="port-text-res">Port</div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay2SettingsPortArabic"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-xs-12"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                                                            <label for="txtRelay3SettingsArabic">Relay Control 3</label>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-3 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay3SettingsArabic"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   />
+                                                        </div>
+                                                        <div class="col-lg-2 col-sm-1 col-xs-12">
+                                                            <div class="port-text-res">Port</div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay3SettingsPortArabic"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-xs-12"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                                                            <label for="txtRelay4SettingsArabic">Relay Control 4</label>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-3 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay4SettingsArabic"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   />
+                                                        </div>
+                                                        <div class="col-lg-2 col-sm-1 col-xs-12">
+                                                            <div class="port-text-res">Port</div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtRelay4SettingsPortArabic"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-xs-12"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 port-control-form">
+                                            <div class="form-row">
+                                                <div class="col-lg-2">
+                                                    <div class="caption ip-caption">IP Managment</div>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-4"></div>
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-2">
+                                                            <!-- <div class="port-text">Port</div> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2">
+                                                            <label for="">ALPR IP</label>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtALPRIp"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   />
+                                                        </div>
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-2">
+                                                            <div class="text-bold text-underline">
+                                                                ALPR LOOP
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2">
+                                                            <label for="">Scene IP</label>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtSceneIp"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   />
+                                                        </div>
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-3">
+                                                            <div class="form-group switch-sm">
+                                                                <label class="d-inline-block label-text"
+                                                                       for="chkEntry">Entry</label>
+                                                                <label class="d-inline-block switch switch-btn">
+                                                                    <input type="checkbox" id="chkEntry" />
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2">
+                                                            <label for="">Driver Cam Password</label>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <input type="password"
+                                                                   class="form-control form-input"
+                                                                   id="txtDriverCamPassword"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   />
+                                                        </div>
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-2">
+                                                            <div class="custom-control custom-checkbox mb-3">
+                                                                <input type="checkbox"
+                                                                       class="custom-control-input"
+                                                                       id="chkAiPlateFinder"
+                                                                       name="chkAiPlateFinder" />
+                                                                <label class="custom-control-label"
+                                                                       for="chkAiPlateFinder">&nbsp; AI Plate Finder</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                     <div class="custom-control custom-checkbox mb-3">
+                                                                <input type="checkbox"
+                                                                       class="custom-control-input"
+                                                                       id="chkLaserTrigger"
+                                                                       name="chkLaserTrigger" />
+                                                                <label class="custom-control-label"
+                                                                       for="chkLaserTrigger">&nbsp; Laser Trigger</label>
+                                                            </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2">
+                                                            <label for="">Driver IP</label>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <input type="text"
+                                                                   class="form-control form-input"
+                                                                   id="txtDriverIp"
+                                                                   placeholder=""
+                                                                   value=""
+                                                                   />
+                                                        </div>
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-4">
+                                                            <div class="d-flex gate-flex">
+                                                                <label class="gate-text">Gate Name</label>
+                                                                <input type="text"
+                                                                       class="form-control form-input"
+                                                                       id="txtGateName"
+                                                                       placeholder=""
+                                                                       value=""
+                                                                       />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </form>
+
+
+                                   
+                                </div>
+                            </div>
+
+                            <div class="container-fluid innerContainer theme-content d-none">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="setting-top-btns mt-2">
+                                            <button class="btn btn-primary update-btn">
+                                                Default Theme
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-12">
+                                    <div class="title-head">English Caption</div>
+                                  </div> -->
+                                <div class="settings-content">
+                                    <div class="row">
+                                        <div class="col-md-12 port-control-form">
+                                            <div class="form-row">
+                                                <div class="col-lg-12">
+                                                    <div class="caption eng-caption">
+                                                        Choose Color
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-6">
+                                                    <div class="theme-colors d-flex justify-content-around">
+                                                        <div class="theme-box box-1">
+                                                        </div>
+
+                                                        <div class="theme-box box-2">
+                                                        </div>
+
+                                                        <div class="theme-box box-3">
+                                                        </div>
+
+                                                        <div class="theme-box box-4">
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="theme-colors d-flex justify-content-around">
+                                                        <div class="theme-box box-5">
+                                                        </div>
+
+                                                        <div class="theme-box box-6">
+                                                        </div>
+
+                                                        <div class="theme-box box-7">
+                                                        </div>
+
+                                                        <div class="theme-box box-8">
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="theme-colors d-flex justify-content-around">
+                                                        <div class="theme-box box-9">
+                                                        </div>
+
+                                                        <div class="theme-box box-10">
+                                                        </div>
+
+                                                        <div class="theme-box box-11">
+                                                        </div>
+
+                                                        <div class="theme-box box-12">
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 port-control-form mt-6">
+                                            <div class="form-row">
+                                                <div class="col-lg-12">
+                                                    <div class="caption arabic-caption mt-4 mb-4">
+                                                        Choose Language
+                                                    </div>
+                                                    <div class="d-flex language-inputs justify-content-center mt-4 mb-4">
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input"
+                                                                   type="radio"
+                                                                   name="flexRadioDefault"
+                                                                   id="flexRadioDefault1" />
+                                                            <label class="form-check-label"
+                                                                   for="flexRadioDefault1">
+                                                                English
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input"
+                                                                   type="radio"
+                                                                   name="flexRadioDefault"
+                                                                   id="flexRadioDefault2"
+                                                                   checked />
+                                                            <label class="form-check-label"
+                                                                   for="flexRadioDefault2">
+                                                                Arabic And English
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 port-control-form">
+                                            <div class="form-row">
+                                                <div class="col-lg-12">
+                                                    <div class="caption ip-caption">Camera Serial</div>
+                                                </div>
+                                                <div class="col-md-3"></div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-4"></div>
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-2">
+                                                            <!-- <div class="port-text">Port</div> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3"></div>
+                                            </div>
+                                            <div class="form-row cam-serial-sec">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-row">
+                                                        <div class="col-lg-12">
+                                                            <div class="d-flex">
+                                                                <label for="">Serial No</label>
+                                                                <input type="text"
+                                                                       class="form-control form-input"
+                                                                       id=""
+                                                                       placeholder=""
+                                                                       value=""
+                                                                       required="" />
+                                                                <button class="btn btn-primary update-btn">
+                                                                    UPDATE
+                                                                </button>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                        </div>
+                                                        <div class="col-lg-2">
+                                                            <div class="text-bold text-underline">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                        <!-- page-content" -->
+                    </div>
+                </div>
+                <div class="tab-pane fade"
+                     id="search_tab"
+                     role="tabpanel"
+                     aria-labelledby="contact-tab">
+                    <div class="container-fluid innerContainer p-1 m-0 reports-content">
+                        <div class="form-row m-0">
+                            <div class="col-md-8">
+                                <div class="searchBox">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="setting-top-btns mt-0 d-flex justify-content-between">
+                                                <div></div>
+                                                <div class="d-flex">
+                                                    <div class="top-search-text">Search By</div>
+                                                    <div class="top-checkboxes d-flex">
+                                                        <div class="custom-control custom-checkbox form-check-inline">
+                                                            <input type="checkbox"
+                                                                   class="custom-control-input"
+                                                                   id="customCheck44"
+                                                                   name="example1" />
+                                                            <label class="custom-control-label"
+                                                                   for="customCheck44">&nbsp; License Plate</label>
+                                                        </div>
+
+                                                        <div class="custom-control custom-checkbox form-check-inline">
+                                                            <input type="checkbox"
+                                                                   class="custom-control-input"
+                                                                   id="customCheck45"
+                                                                   name="example1" />
+                                                            <label class="custom-control-label"
+                                                                   for="customCheck45">&nbsp; Date</label>
+                                                        </div>
+
+                                                        <div class="custom-control custom-checkbox form-check-inline">
+                                                            <input type="checkbox"
+                                                                   class="custom-control-input"
+                                                                   id="customCheck46"
+                                                                   name="example1" />
+                                                            <label class="custom-control-label"
+                                                                   for="customCheck46">&nbsp; Time</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <button class="txt-btn active">View Report</button>
+                                                    <button class="txt-btn">Reset</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-2">
+
+                                        <!-- <div class="col-md-3">
+
+                                          <div class="d-flex top-left-field"></div>
+                                          <div
+                                            class="custom-control custom-checkbox text-right mt-3"
+                                          >
+                                            <input
+                                              type="checkbox"
+                                              class="custom-control-input"
+                                              id="customCheck122"
+                                              name="example1"
+                                            />
+                                            <label
+                                              class="custom-control-label"
+                                              for="customCheck122"
+                                              >&nbsp; Additional ALPR</label
+                                            >
+                                          </div>
+                                        </div> -->
+
+                                        <div class="col-md-10">
+                                            <div class="d-flex top-left-field">
+                                                <label class="mendatory-text">Date From</label>
+                                                <input type="text"
+                                                       id=""
+                                                       placeholder="Select date"
+                                                       class="form-control datepicker filter-dp form-control-sm filter-dp" />
+
+                                                <label class="mendatory-text">Date To</label>
+                                                <input type="text"
+                                                       id=""
+                                                       placeholder="Select date"
+                                                       class="form-control datepicker filter-dp form-control-sm filter-dp" />
+                                            </div>
+                                            <div class="d-flex top-left-field">
+                                                <label class="mendatory-text">Time From</label>
+                                                <div class="input-group timeInit filter-dp" id="">
+                                                    <input type="text"
+                                                           name="end_time"
+                                                           value="12:31:00 AM"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="End time"
+                                                           title=""
+                                                           required=""
+                                                           id="" />
+                                                    <div class="input-group-addon input-group-append">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-clock"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <label class="mendatory-text">Time To</label>
+                                                <div class="input-group timeInit filter-dp" id="">
+                                                    <input type="text"
+                                                           name="end_time"
+                                                           value="12:31:00 AM"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="End time"
+                                                           title=""
+                                                           required=""
+                                                           id="" />
+                                                    <div class="input-group-addon input-group-append">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-clock"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="custom-control custom-checkbox text-right mt-3">
+                                                <input type="checkbox"
+                                                       class="custom-control-input"
+                                                       id="customCheck2121"
+                                                       name="example1" />
+                                                <label class="custom-control-label"
+                                                       for="customCheck2121">&nbsp; Additional ALPR</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-flex top-left-field">
+                                                <label class="mendatory-text">License Plate #</label>
+                                                <input type="text"
+                                                       class="form-control form-input"
+                                                       id=""
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-flex top-left-field">
+                                                <label class="mendatory-text">Arabic Plate #</label>
+                                                <input type="text"
+                                                       class="form-control form-input"
+                                                       id=""
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="controlBox">
+                                    <div class="row">
+                                        <div class="col-md-12"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="search-display-img"></div>
+                            </div>
+                            <div class="col-lg-2 col-md-3 pt-0">
+
+                                <div class="search-reset">
+                                    <button class="txt-btn active">Search</button>
+                                    <button class="txt-btn ">Reset</button>
+                                </div>
+                                <div class="scene-box mt-4">
+                                    <div class="title">
+                                        DRIVER <span></span>
+                                    </div>
+                                    <div class="driver-video search-tab-dv">
+                                        <!-- <video controls class="wid_100">
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.mp4"
+                                            type="video/mp4"
+                                          />
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.ogg"
+                                            type="video/ogg"
+                                          />
+                                          Your browser does not support the video tag.
+                                        </video> -->
+                                    </div>
+                                    <!-- <div class="driver-activity">Current Driver Activity</div> -->
+                                </div>
+                                <div class="zoom mt-2">
+
+                                    <input id="BrightnessSlider"
+                                           type="range"
+                                           value="0"
+                                           min="0"
+                                           max="100" />
+                                </div>
+                                <div class="license-box mt-4">
+                                    <div class="title d-flex justify-content-between">License Plate <span><i class="fas fa-search"></i></span></div>
+                                    <div class="driver-video search-tab-dv">
+                                        <!-- <video controls class="wid_100">
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.mp4"
+                                            type="video/mp4"
+                                          />
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.ogg"
+                                            type="video/ogg"
+                                          />
+                                          Your browser does not support the video tag.
+                                        </video> -->
+                                    </div>
+                                    <!-- <div class="driver-activity">Current Driver Activity</div> -->
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade"
+                     id="viewDetail_tab"
+                     role="tabpanel"
+                     aria-labelledby="contact-tab">
+                    <div class="mainDashboard">
+                        <div class="form-row">
+
+                            <div class="col-lg-6 col-md-9">
+                                <div class="mainImages-box">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="scanner-1">
+                                                <div class="title">Overlay</div>
+                                                <div class="scanner-img-1"></div>
+                                                <label class="d-block text-center"
+                                                       for="BrightnessSlider">Brightness</label>
+                                                <input id="BrightnessSlider"
+                                                       type="range"
+                                                       value="0"
+                                                       min="0"
+                                                       max="100" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="scanner-2">
+                                                <ul class="nav nav-tabs "
+                                                    id="bottomTabs"
+                                                    role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active"
+                                                           id="original-tab"
+                                                           data-toggle="tab"
+                                                           href="#originalTab"
+                                                           role="tab"
+                                                           aria-controls="originalTab"
+                                                           aria-selected="true">Original</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           id="high-tab"
+                                                           data-toggle="tab"
+                                                           href="#highTab"
+                                                           role="tab"
+                                                           aria-controls="highTab"
+                                                           aria-selected="false">High</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           id="medium-tab"
+                                                           data-toggle="tab"
+                                                           href="#mediumTab"
+                                                           role="tab"
+                                                           aria-controls="mediumTab"
+                                                           aria-selected="false">Medium</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           id="low-tab"
+                                                           data-toggle="tab"
+                                                           href="#lowTab"
+                                                           role="tab"
+                                                           aria-controls="lowTab"
+                                                           aria-selected="false">Low</a>
+                                                    </li>
+                                                </ul>
+                                                <div class="scanner-img-2"></div>
+
+
+                                                <!-- <div class="tab-content" id="myTabContent">
+                                                      <div
+                                                        class="tab-pane fade show active"
+                                                        id="originalTab"
+                                                        role="tabpanel"
+                                                        aria-labelledby="home-tab"
+                                                      >
+                                                        ...
+                                                      </div>
+                                                      <div
+                                                        class="tab-pane fade"
+                                                        id="highTab"
+                                                        role="tabpanel"
+                                                        aria-labelledby="profile-tab"
+                                                      >
+                                                        ...
+                                                      </div>
+                                                      <div
+                                                        class="tab-pane fade"
+                                                        id="mediumTab"
+                                                        role="tabpanel"
+                                                        aria-labelledby="contact-tab"
+                                                      >
+                                                        ...
+                                                      </div>
+                                                      <div
+                                                        class="tab-pane fade"
+                                                        id="lowTab"
+                                                        role="tabpanel"
+                                                        aria-labelledby="contact-tab"
+                                                      >
+                                                        ...
+                                                      </div>
+                                                    </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 pt-4">
+                                <div class="driver-box mt-2">
+                                    <div class="title d-flex justify-content-between">
+                                        DRIVER
+                                        <span>
+                                            <i class="fas fa-search"></i></i
+                                            >
+                                        </span>
+                                    </div>
+                                    <div class="driver-video">
+                                        <!-- <video controls class="wid_100">
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.mp4"
+                                            type="video/mp4"
+                                          />
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.ogg"
+                                            type="video/ogg"
+                                          />
+                                        </video> -->
+                                    </div>
+                                    <div class="driver-activity">Current Driver Activity</div>
+                                </div>
+
+                                <div class="scene-box mt-4">
+                                    <div class="title">
+                                        DRIVER <span></span>
+                                    </div>
+                                    <div class="driver-video">
+                                        <!-- <video controls class="wid_100">
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.mp4"
+                                            type="video/mp4"
+                                          />
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.ogg"
+                                            type="video/ogg"
+                                          />
+                                          Your browser does not support the video tag.
+                                        </video> -->
+                                    </div>
+                                    <div class="driver-activity">Current Driver Activity</div>
+                                </div>
+
+                                <div class="license-box mt-4">
+                                    <div class="title d-flex justify-content-between">DRIVER <span><i class="fas fa-search"></i></span></div>
+                                    <div class="driver-video">
+                                        <!-- <video controls class="wid_100">
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.mp4"
+                                            type="video/mp4"
+                                          />
+                                          <source
+                                            src="https://www.w3schools.com/tags/movie.ogg"
+                                            type="video/ogg"
+                                          />
+                                          Your browser does not support the video tag.
+                                        </video> -->
+                                    </div>
+                                    <div class="driver-activity">Current Driver Activity</div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-12">
+                                <div class="mainImages-box">
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="scanner-1">
+                                                <div class="title">Mouse Over Zoom</div>
+                                                <div class="scanner-img-1"></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade"
+                     id="image_tab"
+                     role="tabpanel"
+                     aria-labelledby="contact-tab">
+                    ...
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Search Modal Html Starts Here-->
+
+    <div class="modal fade" id="SearchFormVisitor" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="lblSearchDialog" class="modal-title">Search</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation">
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <div class="d-flex top-left-field">
+                                    <label class="LisensePlate">Lisense Plate # </label>
+                                    <input type="text" maxlength="20" class="form-control form-input" id="txtLisensePlateVisitorFilter" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="d-flex top-left-field">
+                                    <label class="FirstName">First Name </label>
+                                    <input type="text" maxlength="20" class="form-control form-input" id="txtFirstNameVisitorFilter" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="d-flex top-left-field">
+                                    <label class="LastName">Last Name</label>
+                                    <input type="text" maxlength="20" class="form-control form-input" id="txtLastNameVisitorFilter" placeholder="">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-5 mb-3">
+                            <div class="col-md-4">
+                                
+                            </div>
+                            <div class="col-md-5">
+                            </div>
+                            <div class="col-md-3 ">
+                                <button type="button"  class="txt-btn btn-lg active" style="width:100%;" onclick="SearchFormVisitorFilter();">Search</button>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <table id="tblVisitors" class="table table-bordered table-hover  nowrap" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>First Name</th>
+                                            <th>Middle Name</th>
+                                            <th>Last Name</th>
+                                            <th>Lisense Plate</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </form>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Model Code Ends Here-->
+
+
+
+
+</body>
+
+<script src="~/assets/js/Datatable.js"></script>
+<script src="https://cdn.bootcss.com/prettify/r298/prettify.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="~/assets/js/jquery.magnify.js"></script>
+<script>
+
+
+    function OpenSearchDialog() {
+
+        $('#SearchFormVisitor').modal('show');
+    }
+function SearchFormVisitorFilter() { 
+    var lp=document.getElementById("txtLisensePlateVisitorFilter").value;
+    var fname=document.getElementById("txtFirstNameVisitorFilter").value;
+    var lname=document.getElementById("txtLastNameVisitorFilter").value;
+
+    
+         $.ajax({
+            url: '/Home/FillVisitorFilter',
+            type: 'POST',
+              data: { "firstname": fname,"lastname":lname,"lpn":lp },
+
+            error: function(jqXHR, textStatus, errorThrown) {
+
+
+            },
+            success: function(result) {
+
+
+                $('#tblVisitors').DataTable().destroy();
+                $('#tblVisitors').DataTable({
+                    data: result,
+                    responsive: true,
+
+                    processing: true,
+
+                    paging: true,
+                    scrollX: true,
+                    autoWidth: true,
+                    "iDisplayLength": 10,
+                    dom: 'Bfrtip',
+
+                    columns: [
+
+                       
+
+                        { data: 'visitorFirstName', "autowidth": true },
+                        { data: 'visitorMiddleName', "autowidth": true },
+                        { data: 'visitorLastName', "autowidth": true },
+                        { data: 'lpn', "autowidth": true },
+                        {
+                            data: 'id',
+                            render: function(data, type, row) {
+                                return '<button type="button" class="btn btn-primary" onclick="EditVisitor(this)">Edit</button>';
+                            }
+                        }
+
+
+
+                    ],
+
+
+
+                    responsive: true
+
+                });
+            }
+        });
+
+    }
+
+
+    $('#SearchFormVisitor').on('shown.bs.modal', function () {
+           $.ajax({
+            url: '/Home/FillVisitor',
+            type: 'POST',
+
+
+            error: function(jqXHR, textStatus, errorThrown) {
+
+
+            },
+            success: function(result) {
+
+
+                $('#tblVisitors').DataTable().destroy();
+                $('#tblVisitors').DataTable({
+                    data: result,
+                    responsive: true,
+
+                    processing: true,
+
+                    paging: true,
+                    scrollX: true,
+                    autoWidth: true,
+                    "iDisplayLength": 10,
+                    dom: 'Bfrtip',
+
+                    columns: [
+
+                       
+
+                        { data: 'visitorFirstName', "autowidth": true },
+                        { data: 'visitorMiddleName', "autowidth": true },
+                        { data: 'visitorLastName', "autowidth": true },
+                        { data: 'lpn', "autowidth": true },
+                        {
+                            data: 'id',
+                            render: function(data, type, row) {
+                                return '<button type="button" class="btn btn-primary" onclick="EditVisitor(this)">Edit</button>';
+                            }
+                        }
+
+
+
+                    ],
+
+
+
+                    responsive: true
+
+                });
+            }
+        });
+})
+
+
+  function EditVisitor(button) {
+
+        $("#SearchFormVisitor").modal('toggle');
+
+        var currentrow = button.parentNode.parentNode;
+        var row = $('#tblVisitors').DataTable().row(currentrow).data();
+
+        if (row != null) {
+          
+           
+            selectedVisitorId = row.id;
+            //document.getElementById("divCurrentUserMode").innerHTML = "Current Mode: Update User"
+            //isUserUpdateMode = true;
+            document.getElementById("txtLPVisitor").value = row.lpn;
+            document.getElementById("txtVisitorFirstName").value = row.visitorFirstName;
+            document.getElementById("txtVisitorMiddleName").value = row.visitorMiddleName;
+            document.getElementById("txtVisitorOrganization").value = row.visitorOrganization;
+            //document.getElementById("txtVisitorCountry").value = row.password;
+            document.getElementById("txtVisitorPhone").value = row.visitorPhoneNo;
+
+            document.getElementById("txtVisitorManager").value = row.visitorManager;
+            document.getElementById("selVisitorClassification").value = row.visitorCategory;
+            document.getElementById("txtVisitorFacility").value = row.visitorFacility;
+            document.getElementById("selVisitorAuthorization").value = row.visitorAuthorization;
+            document.getElementById("txtVisitorMobileNo").value = row.visitorMobileNo;
+            document.getElementById("txtVisitorLastName").value = row.visitorLastName;
+
+            document.getElementById("txtVisitorEmail").value = row.visitorEmail;
+            document.getElementById("txtVisitorAddress").value = row.visitorAddress;
+            //document.getElementById("txtVisitorCity").value = row.middleName;
+            //document.getElementById("txtVisitorRegion").value = row.username;
+            
+
+
+        }
+
+
+    }
+
+    //window.prettyPrint && prettyPrint();
+
+    var defaultOpts = {
+        draggable: true,
+        resizable: true,
+        movable: true,
+        keyboard: true,
+        title: true,
+        modalWidth: 600,
+        modalHeight: 600,
+        fixedContent: true,
+        fixedModalSize: false,
+        initMaximized: true,
+        gapThreshold: 0.02,
+        ratioThreshold: 0.1,
+        minRatio: 0.05,
+        maxRatio: 16,
+        headToolbar: ['maximize', 'close'],
+        footToolbar: ['zoomIn', 'zoomOut', 'prev', 'fullscreen', 'next', 'actualSize', 'rotateRight'],
+        multiInstances: false,
+        initEvent: 'click',
+        initAnimation: true,
+        fixedModalPos: false,
+        zIndex: 1090,
+        dragHandle: '.magnify-modal',
+        progressiveLoading: true
+    };
+    //$('[data-magnify]').magnify(this.options);
+    $('#imgLP').click(function(event) {
+        if (!event.detail || event.detail == 1) {//activate on first click only to avoid hiding again on double clicks
+            // Toggle classes and do functions here
+
+        }
+        else {
+            $(this).prop('disabled', true);
+
+            var refreshId = setInterval(function() {
+                $("#imgLP").prop("disabled", false);
+                clearInterval(refreshId);
+
+
+            }, 1000);
+
+
+
+
+
+
+        }
+    });
+
+    window.onbeforeunload = function(event) {
+        // localStorage.removeItem("authtoken");
+    };
+
+    // Restricts input for the given textbox to the given inputFilter.
+    function setInputFilter(textbox, inputFilter) {
+        ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+            textbox.addEventListener(event, function() {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                } else {
+                    this.value = "";
+                }
+            });
+        });
+    }
+
+    $(document).ready(function() {
+
+        if (window.localStorage.getItem("authtoken") == null) {
+            window.location.href = '/Account/Login';
+        }
+        else {
+            document.getElementById("divMain").style.display = "block";
+        }
+
+        //--Set key press restrictions--
+        setInputFilter(document.getElementById("txtVisitorPhone"), function(value) { return /^[0-9\+\-]+$/.test(value); });
+        //--Set key press restrictions--
+
+
+        FillGrid();
+        FillUsers('guard');
+
+        setInterval(function() {
+            var myImageElement = document.getElementById('imgDriver');
+            myImageElement.src = 'http://192.168.1.210/scapture';
+            LoadALPRStream();
+
+            //socket1 = new WebSocketRest('ws://localhost:4000/StreamHub');
+            //socket1.onopen = function(event) {
+
+            //    console.log('opened');
+            //};
+            //socket1.onmessage = function(event) {
+
+            //    alert("this returned from server: " + event);
+            //}
+
+        }, 100);
+
+
+
+
+
+    });
+
+    var brightnessSlider;
+
+    $(".sidebar-dropdown > a").click(function() {
+        $(".sidebar-submenu").slideUp(200);
+        if ($(this).parent().hasClass("active")) {
+            $(".sidebar-dropdown").removeClass("active");
+            $(this).parent().removeClass("active");
+        } else {
+            $(".sidebar-dropdown").removeClass("active");
+            $(this).next(".sidebar-submenu").slideDown(200);
+            $(this).parent().addClass("active");
+        }
+    });
+
+    $("#close-sidebar").click(function() {
+        $(".page-wrapper").removeClass("toggled");
+    });
+    $("#show-sidebar").click(function() {
+        $(".page-wrapper").addClass("toggled");
+    });
+
+    $(".timeInit").datetimepicker({
+        format: "hh:mm:ss A",
+    });
+    $(".datepicker").datepicker();
+
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#img-up')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function SideTabClick(e) {
+        $(this).find("a").addClass('active');
+        //  alert(e+"-content");
+        //debugger;
+        $('.page-content .innerContainer').addClass('d-none');
+        var tabClick = $("." + e + "-content");
+        tabClick.removeClass('d-none');
+    }
+    function FillUsers(role) {
+
+
+
+        $.ajax({
+            url: '/Account/FillUsers',
+            type: 'POST',
+            data: { "usertype": role },
+
+            error: function(jqXHR, textStatus, errorThrown) {
+
+
+            },
+            success: function(result) {
+
+
+                $('#tblUsers').DataTable().destroy();
+                $('#tblUsers').DataTable({
+                    data: result,
+
+                    paging: true,
+                    "iDisplayLength": 10,
+
+
+                    autoWidth: false,
+                    columns: [
+
+                        { data: 'username', "width": "30%" },
+
+                        { data: 'firstName', "width": "30%" },
+
+                        { data: 'lastName', "width": "30%" },
+
+                        {
+                            data: 'id',
+                            render: function(data, type, row) {
+                                return '<button type="button" class="btn btn-primary" onclick="EditUser(this)">Edit</button>';
+                            }
+                        },
+                        {
+                            data: 'id',
+                            render: function(data, type, row) {
+                                return '<button type="button" class="btn btn-danger" onclick="DeleteUser(this)" >Delete</button>';
+                            }
+                        }
+
+
+                    ],
+
+
+
+                    responsive: false
+
+                });
+            }
+        });
+
+    }
+    //----User Management------------
+
+    var isUserUpdateMode = false;
+    var selectedUserId = "";
+
+    function EditUser(button) {
+
+        var currentrow = button.parentNode.parentNode;
+        var row = $('#tblUsers').DataTable().row(currentrow).data();
+
+        if (row != null) {
+            ClearUser();
+            console.log(row);
+            selectedUserId = row.id;
+            document.getElementById("divCurrentUserMode").innerHTML = "Current Mode: Update User"
+            isUserUpdateMode = true;
+            document.getElementById("txtUserFirstName").value = row.firstName;
+            document.getElementById("txtUserLastName").value = row.lastName;
+            document.getElementById("txtUserMiddleName").value = row.middleName;
+            document.getElementById("txtUserName").value = row.username;
+            document.getElementById("txtUserPassword").value = row.password;
+            document.getElementById("txtUserPhone").value = row.phoneNo;
+            if (row.roles == "Manager") {
+                document.getElementById('rdoUserRoleManager').checked = true;
+            }
+            else {
+                document.getElementById('rdoUserRoleGuard').checked = true;
+            }
+
+
+        }
+
+
+    }
+
+    function ClearUser() {
+        isUserUpdateMode = false;
+        selectedUserId = "";
+        document.getElementById("divCurrentUserMode").innerHTML = "Current Mode: New User"
+        document.getElementById("txtUserFirstName").value = "";
+        document.getElementById("txtUserLastName").value = "";
+        document.getElementById("txtUserMiddleName").value = "";
+        document.getElementById("txtUserPhone").value = "";
+        document.getElementById("txtUserName").value = "";
+        document.getElementById("txtUserPassword").value = "";
+        document.getElementById('rdoUserRoleGuard').checked = true;
+    }
+
+    function SaveUser() {
+
+        var authtoken = window.localStorage.getItem("authtoken");
+        var firstname = document.getElementById("txtUserFirstName").value;
+        var lastname = document.getElementById("txtUserLastName").value;
+        var middlename = document.getElementById("txtUserMiddleName").value;
+        var phone = document.getElementById("txtUserPhone").value;
+        var username = document.getElementById("txtUserName").value;
+        var password = document.getElementById("txtUserPassword").value;
+        var role = 'guard';
+        if (document.getElementById('rdoUserRoleManager').checked == true) {
+            role = 'manager';
+        }
+        else {
+            role = 'guard';
+        }
+
+        var form = document.getElementById("frmUserManagement");
+
+
+
+
+
+        if (!form.checkValidity()) {
+
+            event.preventDefault()
+            event.stopPropagation()
+            form.classList.add('was-validated')
+            return;
+        }
+        else {
+
+
+        }
+
+        $.ajax({
+            url: '/Account/SaveUser',
+            type: 'POST',
+            data: { "id": selectedUserId, "FirstName": firstname, "LastName": lastname, "MiddleName": middlename, "Phone": phone, "Username": username, "Password": password, "roles": role, "authtoken": authtoken },
+
+            error: function(jqXHR, textStatus, errorThrown) {
+
+
+            },
+            success: function(result) {
+                if (result.message == "success") {
+                    FillUsers(role);
+                }
+                else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: result.message + ' !',
+                        footer: ''
+                    });
+                }
+
+            }
+        });
+
+    }
+
+    function DeleteUser(button) {
+
+        var currentrow = button.parentNode.parentNode;
+        var row = $('#tblUsers').DataTable().row(currentrow).data();
+        var authtoken = window.localStorage.getItem("authtoken");
+        selectedUserId = row.id;
+        if (row != null) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '/Account/DeleteUser',
+                        type: 'POST',
+                        data: { "id": selectedUserId, "authtoken": authtoken },
+
+                        error: function(jqXHR, textStatus, errorThrown) {
+
+                        },
+                        success: function(result) {
+                            if (result.message == "success") {
+                                FillUsers(row.roles);
+                            }
+                            else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: result.message + ' !',
+                                    footer: ''
+                                });
+                            }
+
+                        }
+                    });
+                }
+            });
+
+        }
+
+    }
+    //----User Management------------
+
+
+
+    //---Settings Management Tab Code Starts Here -----------
+
+
+    var selectedSettingsId = '';
+     function SaveSettings() {
+        var authtoken = window.localStorage.getItem("authtoken");
+        var relay1settings = document.getElementById("txtRelay1Settings").value;
+        var relay1settingsport = document.getElementById("txtRelay1SettingsPort").value;
+        var relay2settings = document.getElementById("txtRelay2Settings").value;
+        var relay2settingsport = document.getElementById("txtRelay2SettingsPort").value;
+        var relay3settings = document.getElementById("txtRelay3Settings").value;
+        var relay3settingsport = document.getElementById("txtRelay3SettingsPort").value;
+        var relay4settings = document.getElementById("txtRelay4Settings").value;
+        var relay4settingsport = document.getElementById("txtRelay4SettingsPort").value;
+        var ipaddress = document.getElementById("txtIpAddress").value;
+        var listenport = document.getElementById("txtListenPort").value;
+        var relay1settingsarabic = document.getElementById("txtRelay1SettingsArabic").value;
+        var relay1settingsportarabic = document.getElementById("txtRelay1SettingsPortArabic").value;
+        var relay2settingsarabic = document.getElementById("txtRelay2SettingsArabic").value;
+        var relay2settingsportarabic = document.getElementById("txtRelay2SettingsPortArabic").value;
+        var relay3settingsarabic = document.getElementById("txtRelay3SettingsArabic").value;
+        var relay3settingsportarabic = document.getElementById("txtRelay3SettingsPortArabic").value;
+        var relay4settingsarabic = document.getElementById("txtRelay4SettingsArabic").value;
+        var relay4settingsportarabic = document.getElementById("txtRelay4SettingsPortArabic").value;
+        //var ipnumber = document.getElementById("txtIpAddress").value;
+        var alprIP= document.getElementById("txtALPRIp").value;
+
+        var chkentry; 
+         if (document.getElementById("chkEntry").checked == true){
+             chkentry = true;
+         }
+         else
+         {
+             chkentry = false;
+         }
+
+
+        var sceneip = document.getElementById("txtSceneIp").value;
+        var drivercampassword = document.getElementById("txtDriverCamPassword").value;
+        var aiplatefinder;
+        if (document.getElementById("chkAiPlateFinder").checked == true){
+             aiplatefinder = true;
+         }
+         else
+         {
+             aiplatefinder = false;
+         }
+        var lasertrigger;
+
+         if (document.getElementById("chkLaserTrigger").checked == true){
+             lasertrigger = true;
+         }
+         else
+         {
+             lasertrigger = false;
+         }
+        var driverip = document.getElementById("txtDriverIp").value;
+        var gatename = document.getElementById("txtGateName").value;
+
+        var form = document.getElementById("frmSettings");
+
+
+
+        if (!form.checkValidity()) {
+
+            event.preventDefault()
+            event.stopPropagation()
+            form.classList.add('was-validated')
+            return;
+        }
+        else {
+            debugger;
+            $.ajax({
+                url: '/Home/SaveSettings',
+                type: 'POST',
+                data: { "Id": selectedSettingsId, "relay1settings": relay1settings, "relay1settingsport": relay1settingsport, "relay2settings": relay2settings, "relay2settingsport": relay2settingsport, "relay3settings": relay3settings, "relay3settingsport": relay3settingsport, "relay4settings": relay4settings, "relay4settingsport": relay4settingsport,  "listenport":listenport, "relay1settingsarabic": relay1settingsarabic,  "relay2settingsarabic": relay2settingsarabic,  "relay3settingsarabic": relay3settingsarabic, "relay4settingsarabic": relay4settingsarabic,  "ipnumber": ipaddress, "sceneip": sceneip, "chkentry": chkentry, "drivercampassword": drivercampassword, "aiplatefinder": aiplatefinder, "lasertrigger": lasertrigger, "driverip": driverip, "gatename": gatename,"licenseCamIP":alprIP,"authtoken":authtoken },
+
+                error: function(jqXHR, textStatus, errorThrown) {
+
+
+                },
+                success: function(result) {
+                    if (result.message == "success") {
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Saved...',
+                            text: 'Settings saved successfully !',
+                            footer: ''
+                        });
+                        ResetVisitor();
+
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: result.message + ' !',
+                            footer: ''
+                        });
+                    }
+
+                }
+            });
+
+
+        }
+
+
+    }
+
+
+    $('#FillSettingsData').click(function(){
+      
+
+            $.ajax({
+            url: '/Home/FillSettings',
+            type: 'POST',
+
+
+            error: function(jqXHR, textStatus, errorThrown) {
+
+
+            },
+            success: function(result) {
+
+                
+        var row = result;
+
+        if (row != null) {
+          
+          debugger;
+            selectedSettingsId = row.id;
+            //document.getElementById("divCurrentUserMode").innerHTML = "Current Mode: Update User"
+
+            
+         document.getElementById("txtRelay1Settings").value = row.relay1;
+         document.getElementById("txtRelay1SettingsPort").value = row.relay1Port;
+         document.getElementById("txtRelay2Settings").value = row.relay2;
+         document.getElementById("txtRelay2SettingsPort").value = row.relay2Port;
+        document.getElementById("txtRelay3Settings").value = row.relay3;
+         document.getElementById("txtRelay3SettingsPort").value=row.relay3Port;
+         document.getElementById("txtRelay4Settings").value=row.relay4;
+         document.getElementById("txtRelay4SettingsPort").value=row.relay4Port;
+         document.getElementById("txtIpAddress").value=row.ipAddress;
+         document.getElementById("txtListenPort").value=row.listenPort;
+         document.getElementById("txtRelay1SettingsArabic").value=row.relay1Arab;
+         document.getElementById("txtRelay1SettingsPortArabic").value=row.relay1Port;
+        document.getElementById("txtRelay2SettingsArabic").value=row.relay2Arab;
+         document.getElementById("txtRelay2SettingsPortArabic").value=row.relay2Port;
+         document.getElementById("txtRelay3SettingsArabic").value=row.relay3Arab;
+         document.getElementById("txtRelay3SettingsPortArabic").value=row.relay3Port;
+         document.getElementById("txtRelay4SettingsArabic").value=row.relay4Arab;
+         document.getElementById("txtRelay4SettingsPortArabic").value=row.relay4Port;
+         //document.getElementById("txtIpNumber").value=row.ipAddress;
+          document.getElementById("txtALPRIp").value = row.licenseCamIP;
+
+         if (row.ALPREntryLoop == true){
+             document.getElementById("chkEntry").checked = true;
+         }
+         else
+         {
+             document.getElementById("chkEntry").checked = false;
+         }
+
+       
+
+
+         document.getElementById("txtSceneIp").value=row.sceneCamIP;
+         document.getElementById("txtDriverCamPassword").value=row.driverCamPassword;
+
+         if (row.aiPlateFinder == true){
+             document.getElementById("chkAiPlateFinder").checked = true;
+         }
+         else
+         {
+             document.getElementById("chkAiPlateFinder").checked = false;
+         }
+         if (row.laserTrigger == true){
+             document.getElementById("chkLaserTrigger").checked = true;
+         }
+         else
+         {
+             document.getElementById("chkLaserTrigger").checked = false;
+         }
+
+       
+         document.getElementById("txtDriverIp").value=row.driverCamIP;
+         document.getElementById("txtGateName").value=row.gate_name;
+
+         }
+         }
+         });
+            
+        });
+
+
+
+    //----Visitor Management------------
+var selectedVisitorId = '';
+    function SaveVisitor() {
+
+        var authtoken = window.localStorage.getItem("authtoken");
+        var lp = document.getElementById("txtLPVisitor").value;
+        var lparabic = document.getElementById("txtLPVisitorArabic").value;
+        var firstname = document.getElementById("txtVisitorFirstName").value;
+        var middlename = document.getElementById("txtVisitorMiddleName").value;
+        var organization = document.getElementById("txtVisitorOrganization").value;
+        var facility = document.getElementById("txtVisitorFacility").value;
+        var mobileno = document.getElementById("txtVisitorMobileNo").value;
+        var email = document.getElementById("txtVisitorEmail").value;
+        var city = document.getElementById("txtVisitorCity").value;
+        var country = document.getElementById("txtVisitorCountry").value;
+        var phone = document.getElementById("txtVisitorPhone").value;
+        var manager = document.getElementById("txtVisitorManager").value;
+        var classification = $("#selVisitorClassification option:selected").text();
+        var authorization = $("#selVisitorAuthorization option:selected").text();
+        var lastname = document.getElementById("txtVisitorLastName").value;
+        var address = document.getElementById("txtVisitorAddress").value;
+        var region = document.getElementById("txtVisitorRegion").value;
+
+        var form = document.getElementById("frmVisitorManagement");
+
+
+
+        if (!form.checkValidity()) {
+
+            event.preventDefault()
+            event.stopPropagation()
+            form.classList.add('was-validated')
+            return;
+        }
+        else {
+
+            $.ajax({
+                url: '/Home/SaveVisitor',
+                type: 'POST',
+                data: { "id": selectedVisitorId, "lp": lp, "lparabic": lparabic, "firstname": firstname, "middlename": middlename, "organization": organization, "facility": facility, "mobileno": mobileno, "email": email, "country": country, "city": city, "phone": phone, "manager": manager, "classification": classification, "authorization": authorization, "lastname": lastname, "address": address, "region": region, "authtoken": authtoken },
+
+                error: function(jqXHR, textStatus, errorThrown) {
+
+
+                },
+                success: function(result) {
+                    if (result.message == "success") {
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Saved...',
+                            text: 'Visitor saved successfully !',
+                            footer: ''
+                        });
+                        ResetVisitor();
+
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: result.message + ' !',
+                            footer: ''
+                        });
+                    }
+
+                }
+            });
+
+
+        }
+
+
+    }
+
+    function DeleteVisitor()
+    {
+         
+        var authtoken = window.localStorage.getItem("authtoken");
+        
+        if (selectedVisitorId != null) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '/Home/DeleteVisitor',
+                        type: 'POST',
+                        data: { "id": selectedVisitorId, "authtoken": authtoken },
+
+                        error: function(jqXHR, textStatus, errorThrown) {
+
+                        },
+                        success: function(result) {
+                            if (result.message == "success") {
+
+                                 Swal.fire({
+                            icon: 'success',
+                            title: 'Deleted...',
+                            text: 'Visitor deleted successfully !',
+                            footer: ''
+                        });
+                        ResetVisitor();
+                               
+                            }
+                            else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: result.message + ' !',
+                                    footer: ''
+                                });
+                            }
+
+                        }
+                    });
+                }
+            });
+
+        }
+
+    }
+
+    function ResetVisitor() {
+
+
+        document.getElementById("txtLPVisitor").value = "";
+        document.getElementById("txtLPVisitorArabic").value = "";
+        document.getElementById("txtVisitorFirstName").value = "";
+        document.getElementById("txtVisitorMiddleName").value = "";
+        document.getElementById("txtVisitorOrganization").value = "";
+        document.getElementById("txtVisitorFacility").value = "";
+        document.getElementById("txtVisitorMobileNo").value = "";
+        document.getElementById("txtVisitorEmail").value = "";
+        document.getElementById("txtVisitorCity").value = "";
+        document.getElementById("txtVisitorCountry").value = "";
+        document.getElementById("txtVisitorPhone").value = "";
+        document.getElementById("txtVisitorManager").value = "";
+        $("#selVisitorClassification").val('VISITOR');
+        $("#selVisitorAuthorization").val('AUTHORIZED');
+        document.getElementById("txtVisitorLastName").value = "";
+        document.getElementById("txtVisitorAddress").value = "";
+        document.getElementById("txtVisitorRegion").value = "";
+
+    }
+
+    //----Visitor Management------------
+
+
+
+    function LoadALPRStream() {
+
+        $.ajax({
+            url: '/Home/LoadALPRStream',
+            type: 'POST',
+
+
+            error: function(jqXHR, textStatus, errorThrown) {
+
+
+            },
+            success: function(result) {
+                var src = "data:image/jpeg;base64," + result.result;
+                document.getElementById("imgLP").src = src;
+
+                var datasrc = document.createAttribute('data-src');
+                datasrc.value = src;
+
+
+                document.getElementById("imgLP").setAttributeNode(datasrc);
+
+            }
+        });
+
+    }
+
+
+
+    function FillGrid() {
+
+        $.ajax({
+            url: '/Home/FillGrid',
+            type: 'POST',
+
+
+            error: function(jqXHR, textStatus, errorThrown) {
+
+
+            },
+            success: function(result) {
+
+
+                $('#tblData').DataTable().destroy();
+                $('#tblData').DataTable({
+                    data: result,
+                    responsive: true,
+
+                    processing: true,
+
+                    paging: true,
+                    scrollX: true,
+                    autoWidth: true,
+                    "iDisplayLength": 10,
+                    dom: 'Bfrtip',
+
+                    columns: [
+
+                        { data: 'id', "autowidth": true },
+
+                        { data: 'licensePlateNumber', "autowidth": true },
+                        { data: 'carManufacture', "autowidth": true },
+                        { data: 'timeStamp', "autowidth": true },
+                        { data: 'carMake', "autowidth": true },
+
+
+
+
+                    ],
+
+
+
+                    responsive: true
+
+                });
+            }
+        });
+
+    }
+</script>
+</html>
