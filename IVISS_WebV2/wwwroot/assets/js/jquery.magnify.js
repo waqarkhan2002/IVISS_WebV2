@@ -222,7 +222,7 @@ var $W = $(window),
     movable: true,
 
     // Enable keyboard navigation
-    keyboard: true,
+    keyboard: false,
 
     // Shows the title
     title: true,
@@ -602,15 +602,17 @@ Magnify.prototype = {
       zoomOut: '<button class="magnify-button magnify-button-zoom-out" title="' +
         this.options.i18n.zoomOut + '">' +
         this.options.icons.zoomOut +
-        '</button>',
-      prev: '<button class="magnify-button magnify-button-prev" title="' +
-        this.options.i18n.prev + '">' +
-        this.options.icons.prev +
-        '</button>',
-      next: '<button class="magnify-button magnify-button-next" title="' +
-        this.options.i18n.next + '">' +
-        this.options.icons.next +
-        '</button>',
+            '</button>',
+        prev: '',
+      next:'',
+      //prev: '<button class="magnify-button magnify-button-prev" title="' +
+      //  this.options.i18n.prev + '">' +
+      //  this.options.icons.prev +
+      //  '</button>',
+      //next: '<button class="magnify-button magnify-button-next" title="' +
+      //  this.options.i18n.next + '">' +
+      //  this.options.icons.next +
+      //  '</button>',
       fullscreen: '<button class="magnify-button magnify-button-fullscreen" title="' +
         this.options.i18n.fullscreen + '">' +
         this.options.icons.fullscreen +

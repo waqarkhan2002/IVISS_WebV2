@@ -16,13 +16,16 @@ body {
 #mainTabNav a {
   position: relative;
 }
+.gate-text {
+    min-width:100px;
+}
 #mainTabNav a.active:before {
-  content: "";
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  position: absolute;
-  border-bottom: 3px solid #0099cb;
+    content: "";
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    border-bottom: 3px solid #0099cb;
 }
 
 .basicTabs a {
@@ -200,8 +203,8 @@ body {
   height: 170px;
 } */
 .driver-video {
-  height: 160px;
-  border: 1px solid #ccc;
+    height: calc(100% - 30px);
+    border: 1px solid #ccc;
 }
 .mainImages-box {
   text-align: center;
@@ -431,12 +434,15 @@ input:checked + .slider:before {
   padding: 8px 5px;
   border-radius: 5px;
 }
+.del-btn.active {
+    background-color: #c50000 !important;
+}
 .user-dt thead th {
-  background-color: #dcdcdc;
-  border: 1px solid #fff;
-  padding: 15px 5px;
-  text-align: center !important;
-  font-size: 15px;
+    background-color: #dcdcdc;
+    border: 1px solid #fff;
+    padding: 15px 5px;
+    text-align: center !important;
+    font-size: 15px;
 }
 .user-dt {
   border: 1px solid #000;
@@ -447,7 +453,7 @@ input:checked + .slider:before {
   white-space: nowrap;
   position: relative;
   top: 15px;
-  min-width: 100px;
+  min-width: 130px;
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -465,12 +471,16 @@ input:checked + .slider:before {
 .user-settings-field {
   margin-top: 30px;
 }
+.sidebar-menu .sidebar-dropdown {
+    cursor: pointer;
+    display: block;
+}
 .user-title {
-  padding: 4px 10px;
-  background-color: #e0e0e0;
-  display: inline-block;
-  color: #008000;
-  font-weight: 500;
+    padding: 4px 10px;
+    background-color: #e0e0e0;
+    display: inline-block;
+    color: #008000;
+    font-weight: 500;
 }
 .top-search-text {
   font-size: 22px;
@@ -480,13 +490,17 @@ input:checked + .slider:before {
   margin-left: 10px;
 }
 .top-checkboxes {
-  margin-top: 8px;
+  margin-top: 4px;
 }
+    .top-checkboxes .custom-control input {
+        transform: scale(1.5);
+        left: 5px;
+    }
 .top-left-field label {
   white-space: nowrap;
   position: relative;
   top: 15px;
-  /* min-width: 100px; */
+  min-width: 150px; 
   text-transform: uppercase;
   font-weight: 600;
   padding-right: 18px;
@@ -940,16 +954,46 @@ body {
 }
 
 /*--------------------------page-content-----------------------------*/
-
+.t-column {
+    height: calc(100vh - 198px);
+    margin-top: 38px;
+}
+.t-column-dashboard {
+    height: calc(100vh - 198px);
+    margin-top: 6px;
+}
+.equal-height-boxes {
+    height: calc((100vh - 208px) / 3);
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.dashboard-logo {
+    text-align: center;
+    padding-top: 12px;
+}
+.upload-parent {
+    position: relative;
+    width: 100%
+}
+.upload-parent {
+    position: relative;
+    width: 100%
+}
+.uploadBox {
+    margin-left:0% !important;
+    width: 100%;
+}
+.upload-btn-wrapper {
+    width: 100%;
+}
 /*-----------------------------chiller-theme-------------------------------------------------*/
-
 .txt-btn {
-  background-color: transparent;
-  border: none;
-  margin-right: 14px;
-  color: #565656;
-  font-weight: 600;
-  text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    margin-right: 14px;
+    color: #565656;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 .update-btn {
   width: 140px;
@@ -977,4 +1021,3778 @@ body {
     position: relative;
     top: -30px;
     font-weight: 500;
+}
+.span-btn{
+    background-color: #006b8e;
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 14px;
+    border-radius: 3px;
+}
+.logo-table img {
+    background-color:transparent !important;
+}
+/*------------------------------    Small Toggle button   -------------------------------*/
+.sm-switch-btn .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 18px;
+}
+.sm-switch-btn .switch-btn{
+    position: relative;
+    top: -2px;
+}
+.sm-switch-btn .slider:before {
+    height: 10px;
+    width: 10px;
+}
+.sm-switch-btn input:checked + .slider:before {
+    -webkit-transform: translateX(22px);
+    -ms-transform: translateX(22px);
+    transform: translateX(22px);
+}
+.search-chk-boxes .custom-control-label::after {
+    top:2px;
+}
+.search-chk-boxes .custom-control-label::before {
+    top: 2px;
+}
+.main-db-table .dataTables_scroll {
+    min-height: 230px;
+}
+.main-db-table .dataTables_info {
+    font-size: 12px;
+    padding: 5px 15px;
+}
+.main-db-table .dataTables_paginate {
+    font-size: 13px;
+}
+
+.main-db-table .dataTables_paginate {
+    position: relative;
+    top: -4px;
+    right: 8px;
+}
+    .main-db-table .dataTables_paginate .paginate_button {
+        padding: 1px 5px !important;
+    }
+    .main-db-table .dataTables_paginate a.paginate_button.current {
+        background-color: #006b8e !important;
+        border: none;
+        color: #fff !important;
+        padding: 2px 6px;
+    }
+/*----------  Record Animation Button --------------------------*/
+@-webkit-keyframes to_24 {
+    4.1666666667% {
+        content: "01";
+    }
+
+    8.3333333333% {
+        content: "02";
+    }
+
+    12.5% {
+        content: "03";
+    }
+
+    16.6666666667% {
+        content: "04";
+    }
+
+    20.8333333333% {
+        content: "05";
+    }
+
+    25% {
+        content: "06";
+    }
+
+    29.1666666667% {
+        content: "07";
+    }
+
+    33.3333333333% {
+        content: "08";
+    }
+
+    37.5% {
+        content: "09";
+    }
+
+    41.6666666667% {
+        content: "10";
+    }
+
+    45.8333333333% {
+        content: "11";
+    }
+
+    50% {
+        content: "12";
+    }
+
+    54.1666666667% {
+        content: "13";
+    }
+
+    58.3333333333% {
+        content: "14";
+    }
+
+    62.5% {
+        content: "15";
+    }
+
+    66.6666666667% {
+        content: "16";
+    }
+
+    70.8333333333% {
+        content: "17";
+    }
+
+    75% {
+        content: "18";
+    }
+
+    79.1666666667% {
+        content: "19";
+    }
+
+    83.3333333333% {
+        content: "20";
+    }
+
+    87.5% {
+        content: "21";
+    }
+
+    91.6666666667% {
+        content: "22";
+    }
+
+    95.8333333333% {
+        content: "23";
+    }
+}
+
+@-moz-keyframes to_24 {
+    4.1666666667% {
+        content: "01";
+    }
+
+    8.3333333333% {
+        content: "02";
+    }
+
+    12.5% {
+        content: "03";
+    }
+
+    16.6666666667% {
+        content: "04";
+    }
+
+    20.8333333333% {
+        content: "05";
+    }
+
+    25% {
+        content: "06";
+    }
+
+    29.1666666667% {
+        content: "07";
+    }
+
+    33.3333333333% {
+        content: "08";
+    }
+
+    37.5% {
+        content: "09";
+    }
+
+    41.6666666667% {
+        content: "10";
+    }
+
+    45.8333333333% {
+        content: "11";
+    }
+
+    50% {
+        content: "12";
+    }
+
+    54.1666666667% {
+        content: "13";
+    }
+
+    58.3333333333% {
+        content: "14";
+    }
+
+    62.5% {
+        content: "15";
+    }
+
+    66.6666666667% {
+        content: "16";
+    }
+
+    70.8333333333% {
+        content: "17";
+    }
+
+    75% {
+        content: "18";
+    }
+
+    79.1666666667% {
+        content: "19";
+    }
+
+    83.3333333333% {
+        content: "20";
+    }
+
+    87.5% {
+        content: "21";
+    }
+
+    91.6666666667% {
+        content: "22";
+    }
+
+    95.8333333333% {
+        content: "23";
+    }
+}
+
+@-o-keyframes to_24 {
+    4.1666666667% {
+        content: "01";
+    }
+
+    8.3333333333% {
+        content: "02";
+    }
+
+    12.5% {
+        content: "03";
+    }
+
+    16.6666666667% {
+        content: "04";
+    }
+
+    20.8333333333% {
+        content: "05";
+    }
+
+    25% {
+        content: "06";
+    }
+
+    29.1666666667% {
+        content: "07";
+    }
+
+    33.3333333333% {
+        content: "08";
+    }
+
+    37.5% {
+        content: "09";
+    }
+
+    41.6666666667% {
+        content: "10";
+    }
+
+    45.8333333333% {
+        content: "11";
+    }
+
+    50% {
+        content: "12";
+    }
+
+    54.1666666667% {
+        content: "13";
+    }
+
+    58.3333333333% {
+        content: "14";
+    }
+
+    62.5% {
+        content: "15";
+    }
+
+    66.6666666667% {
+        content: "16";
+    }
+
+    70.8333333333% {
+        content: "17";
+    }
+
+    75% {
+        content: "18";
+    }
+
+    79.1666666667% {
+        content: "19";
+    }
+
+    83.3333333333% {
+        content: "20";
+    }
+
+    87.5% {
+        content: "21";
+    }
+
+    91.6666666667% {
+        content: "22";
+    }
+
+    95.8333333333% {
+        content: "23";
+    }
+}
+
+@keyframes to_24 {
+    4.1666666667% {
+        content: "01";
+    }
+
+    8.3333333333% {
+        content: "02";
+    }
+
+    12.5% {
+        content: "03";
+    }
+
+    16.6666666667% {
+        content: "04";
+    }
+
+    20.8333333333% {
+        content: "05";
+    }
+
+    25% {
+        content: "06";
+    }
+
+    29.1666666667% {
+        content: "07";
+    }
+
+    33.3333333333% {
+        content: "08";
+    }
+
+    37.5% {
+        content: "09";
+    }
+
+    41.6666666667% {
+        content: "10";
+    }
+
+    45.8333333333% {
+        content: "11";
+    }
+
+    50% {
+        content: "12";
+    }
+
+    54.1666666667% {
+        content: "13";
+    }
+
+    58.3333333333% {
+        content: "14";
+    }
+
+    62.5% {
+        content: "15";
+    }
+
+    66.6666666667% {
+        content: "16";
+    }
+
+    70.8333333333% {
+        content: "17";
+    }
+
+    75% {
+        content: "18";
+    }
+
+    79.1666666667% {
+        content: "19";
+    }
+
+    83.3333333333% {
+        content: "20";
+    }
+
+    87.5% {
+        content: "21";
+    }
+
+    91.6666666667% {
+        content: "22";
+    }
+
+    95.8333333333% {
+        content: "23";
+    }
+}
+
+@-webkit-keyframes to_60 {
+    1.6666666667% {
+        content: ":01";
+    }
+
+    3.3333333333% {
+        content: ":02";
+    }
+
+    5% {
+        content: ":03";
+    }
+
+    6.6666666667% {
+        content: ":04";
+    }
+
+    8.3333333333% {
+        content: ":05";
+    }
+
+    10% {
+        content: ":06";
+    }
+
+    11.6666666667% {
+        content: ":07";
+    }
+
+    13.3333333333% {
+        content: ":08";
+    }
+
+    15% {
+        content: ":09";
+    }
+
+    16.6666666667% {
+        content: ":10";
+    }
+
+    18.3333333333% {
+        content: ":11";
+    }
+
+    20% {
+        content: ":12";
+    }
+
+    21.6666666667% {
+        content: ":13";
+    }
+
+    23.3333333333% {
+        content: ":14";
+    }
+
+    25% {
+        content: ":15";
+    }
+
+    26.6666666667% {
+        content: ":16";
+    }
+
+    28.3333333333% {
+        content: ":17";
+    }
+
+    30% {
+        content: ":18";
+    }
+
+    31.6666666667% {
+        content: ":19";
+    }
+
+    33.3333333333% {
+        content: ":20";
+    }
+
+    35% {
+        content: ":21";
+    }
+
+    36.6666666667% {
+        content: ":22";
+    }
+
+    38.3333333333% {
+        content: ":23";
+    }
+
+    40% {
+        content: ":24";
+    }
+
+    41.6666666667% {
+        content: ":25";
+    }
+
+    43.3333333333% {
+        content: ":26";
+    }
+
+    45% {
+        content: ":27";
+    }
+
+    46.6666666667% {
+        content: ":28";
+    }
+
+    48.3333333333% {
+        content: ":29";
+    }
+
+    50% {
+        content: ":30";
+    }
+
+    51.6666666667% {
+        content: ":31";
+    }
+
+    53.3333333333% {
+        content: ":32";
+    }
+
+    55% {
+        content: ":33";
+    }
+
+    56.6666666667% {
+        content: ":34";
+    }
+
+    58.3333333333% {
+        content: ":35";
+    }
+
+    60% {
+        content: ":36";
+    }
+
+    61.6666666667% {
+        content: ":37";
+    }
+
+    63.3333333333% {
+        content: ":38";
+    }
+
+    65% {
+        content: ":39";
+    }
+
+    66.6666666667% {
+        content: ":40";
+    }
+
+    68.3333333333% {
+        content: ":41";
+    }
+
+    70% {
+        content: ":42";
+    }
+
+    71.6666666667% {
+        content: ":43";
+    }
+
+    73.3333333333% {
+        content: ":44";
+    }
+
+    75% {
+        content: ":45";
+    }
+
+    76.6666666667% {
+        content: ":46";
+    }
+
+    78.3333333333% {
+        content: ":47";
+    }
+
+    80% {
+        content: ":48";
+    }
+
+    81.6666666667% {
+        content: ":49";
+    }
+
+    83.3333333333% {
+        content: ":50";
+    }
+
+    85% {
+        content: ":51";
+    }
+
+    86.6666666667% {
+        content: ":52";
+    }
+
+    88.3333333333% {
+        content: ":53";
+    }
+
+    90% {
+        content: ":54";
+    }
+
+    91.6666666667% {
+        content: ":55";
+    }
+
+    93.3333333333% {
+        content: ":56";
+    }
+
+    95% {
+        content: ":57";
+    }
+
+    96.6666666667% {
+        content: ":58";
+    }
+
+    98.3333333333% {
+        content: ":59";
+    }
+}
+
+@-moz-keyframes to_60 {
+    1.6666666667% {
+        content: ":01";
+    }
+
+    3.3333333333% {
+        content: ":02";
+    }
+
+    5% {
+        content: ":03";
+    }
+
+    6.6666666667% {
+        content: ":04";
+    }
+
+    8.3333333333% {
+        content: ":05";
+    }
+
+    10% {
+        content: ":06";
+    }
+
+    11.6666666667% {
+        content: ":07";
+    }
+
+    13.3333333333% {
+        content: ":08";
+    }
+
+    15% {
+        content: ":09";
+    }
+
+    16.6666666667% {
+        content: ":10";
+    }
+
+    18.3333333333% {
+        content: ":11";
+    }
+
+    20% {
+        content: ":12";
+    }
+
+    21.6666666667% {
+        content: ":13";
+    }
+
+    23.3333333333% {
+        content: ":14";
+    }
+
+    25% {
+        content: ":15";
+    }
+
+    26.6666666667% {
+        content: ":16";
+    }
+
+    28.3333333333% {
+        content: ":17";
+    }
+
+    30% {
+        content: ":18";
+    }
+
+    31.6666666667% {
+        content: ":19";
+    }
+
+    33.3333333333% {
+        content: ":20";
+    }
+
+    35% {
+        content: ":21";
+    }
+
+    36.6666666667% {
+        content: ":22";
+    }
+
+    38.3333333333% {
+        content: ":23";
+    }
+
+    40% {
+        content: ":24";
+    }
+
+    41.6666666667% {
+        content: ":25";
+    }
+
+    43.3333333333% {
+        content: ":26";
+    }
+
+    45% {
+        content: ":27";
+    }
+
+    46.6666666667% {
+        content: ":28";
+    }
+
+    48.3333333333% {
+        content: ":29";
+    }
+
+    50% {
+        content: ":30";
+    }
+
+    51.6666666667% {
+        content: ":31";
+    }
+
+    53.3333333333% {
+        content: ":32";
+    }
+
+    55% {
+        content: ":33";
+    }
+
+    56.6666666667% {
+        content: ":34";
+    }
+
+    58.3333333333% {
+        content: ":35";
+    }
+
+    60% {
+        content: ":36";
+    }
+
+    61.6666666667% {
+        content: ":37";
+    }
+
+    63.3333333333% {
+        content: ":38";
+    }
+
+    65% {
+        content: ":39";
+    }
+
+    66.6666666667% {
+        content: ":40";
+    }
+
+    68.3333333333% {
+        content: ":41";
+    }
+
+    70% {
+        content: ":42";
+    }
+
+    71.6666666667% {
+        content: ":43";
+    }
+
+    73.3333333333% {
+        content: ":44";
+    }
+
+    75% {
+        content: ":45";
+    }
+
+    76.6666666667% {
+        content: ":46";
+    }
+
+    78.3333333333% {
+        content: ":47";
+    }
+
+    80% {
+        content: ":48";
+    }
+
+    81.6666666667% {
+        content: ":49";
+    }
+
+    83.3333333333% {
+        content: ":50";
+    }
+
+    85% {
+        content: ":51";
+    }
+
+    86.6666666667% {
+        content: ":52";
+    }
+
+    88.3333333333% {
+        content: ":53";
+    }
+
+    90% {
+        content: ":54";
+    }
+
+    91.6666666667% {
+        content: ":55";
+    }
+
+    93.3333333333% {
+        content: ":56";
+    }
+
+    95% {
+        content: ":57";
+    }
+
+    96.6666666667% {
+        content: ":58";
+    }
+
+    98.3333333333% {
+        content: ":59";
+    }
+}
+
+@-o-keyframes to_60 {
+    1.6666666667% {
+        content: ":01";
+    }
+
+    3.3333333333% {
+        content: ":02";
+    }
+
+    5% {
+        content: ":03";
+    }
+
+    6.6666666667% {
+        content: ":04";
+    }
+
+    8.3333333333% {
+        content: ":05";
+    }
+
+    10% {
+        content: ":06";
+    }
+
+    11.6666666667% {
+        content: ":07";
+    }
+
+    13.3333333333% {
+        content: ":08";
+    }
+
+    15% {
+        content: ":09";
+    }
+
+    16.6666666667% {
+        content: ":10";
+    }
+
+    18.3333333333% {
+        content: ":11";
+    }
+
+    20% {
+        content: ":12";
+    }
+
+    21.6666666667% {
+        content: ":13";
+    }
+
+    23.3333333333% {
+        content: ":14";
+    }
+
+    25% {
+        content: ":15";
+    }
+
+    26.6666666667% {
+        content: ":16";
+    }
+
+    28.3333333333% {
+        content: ":17";
+    }
+
+    30% {
+        content: ":18";
+    }
+
+    31.6666666667% {
+        content: ":19";
+    }
+
+    33.3333333333% {
+        content: ":20";
+    }
+
+    35% {
+        content: ":21";
+    }
+
+    36.6666666667% {
+        content: ":22";
+    }
+
+    38.3333333333% {
+        content: ":23";
+    }
+
+    40% {
+        content: ":24";
+    }
+
+    41.6666666667% {
+        content: ":25";
+    }
+
+    43.3333333333% {
+        content: ":26";
+    }
+
+    45% {
+        content: ":27";
+    }
+
+    46.6666666667% {
+        content: ":28";
+    }
+
+    48.3333333333% {
+        content: ":29";
+    }
+
+    50% {
+        content: ":30";
+    }
+
+    51.6666666667% {
+        content: ":31";
+    }
+
+    53.3333333333% {
+        content: ":32";
+    }
+
+    55% {
+        content: ":33";
+    }
+
+    56.6666666667% {
+        content: ":34";
+    }
+
+    58.3333333333% {
+        content: ":35";
+    }
+
+    60% {
+        content: ":36";
+    }
+
+    61.6666666667% {
+        content: ":37";
+    }
+
+    63.3333333333% {
+        content: ":38";
+    }
+
+    65% {
+        content: ":39";
+    }
+
+    66.6666666667% {
+        content: ":40";
+    }
+
+    68.3333333333% {
+        content: ":41";
+    }
+
+    70% {
+        content: ":42";
+    }
+
+    71.6666666667% {
+        content: ":43";
+    }
+
+    73.3333333333% {
+        content: ":44";
+    }
+
+    75% {
+        content: ":45";
+    }
+
+    76.6666666667% {
+        content: ":46";
+    }
+
+    78.3333333333% {
+        content: ":47";
+    }
+
+    80% {
+        content: ":48";
+    }
+
+    81.6666666667% {
+        content: ":49";
+    }
+
+    83.3333333333% {
+        content: ":50";
+    }
+
+    85% {
+        content: ":51";
+    }
+
+    86.6666666667% {
+        content: ":52";
+    }
+
+    88.3333333333% {
+        content: ":53";
+    }
+
+    90% {
+        content: ":54";
+    }
+
+    91.6666666667% {
+        content: ":55";
+    }
+
+    93.3333333333% {
+        content: ":56";
+    }
+
+    95% {
+        content: ":57";
+    }
+
+    96.6666666667% {
+        content: ":58";
+    }
+
+    98.3333333333% {
+        content: ":59";
+    }
+}
+
+@keyframes to_60 {
+    1.6666666667% {
+        content: ":01";
+    }
+
+    3.3333333333% {
+        content: ":02";
+    }
+
+    5% {
+        content: ":03";
+    }
+
+    6.6666666667% {
+        content: ":04";
+    }
+
+    8.3333333333% {
+        content: ":05";
+    }
+
+    10% {
+        content: ":06";
+    }
+
+    11.6666666667% {
+        content: ":07";
+    }
+
+    13.3333333333% {
+        content: ":08";
+    }
+
+    15% {
+        content: ":09";
+    }
+
+    16.6666666667% {
+        content: ":10";
+    }
+
+    18.3333333333% {
+        content: ":11";
+    }
+
+    20% {
+        content: ":12";
+    }
+
+    21.6666666667% {
+        content: ":13";
+    }
+
+    23.3333333333% {
+        content: ":14";
+    }
+
+    25% {
+        content: ":15";
+    }
+
+    26.6666666667% {
+        content: ":16";
+    }
+
+    28.3333333333% {
+        content: ":17";
+    }
+
+    30% {
+        content: ":18";
+    }
+
+    31.6666666667% {
+        content: ":19";
+    }
+
+    33.3333333333% {
+        content: ":20";
+    }
+
+    35% {
+        content: ":21";
+    }
+
+    36.6666666667% {
+        content: ":22";
+    }
+
+    38.3333333333% {
+        content: ":23";
+    }
+
+    40% {
+        content: ":24";
+    }
+
+    41.6666666667% {
+        content: ":25";
+    }
+
+    43.3333333333% {
+        content: ":26";
+    }
+
+    45% {
+        content: ":27";
+    }
+
+    46.6666666667% {
+        content: ":28";
+    }
+
+    48.3333333333% {
+        content: ":29";
+    }
+
+    50% {
+        content: ":30";
+    }
+
+    51.6666666667% {
+        content: ":31";
+    }
+
+    53.3333333333% {
+        content: ":32";
+    }
+
+    55% {
+        content: ":33";
+    }
+
+    56.6666666667% {
+        content: ":34";
+    }
+
+    58.3333333333% {
+        content: ":35";
+    }
+
+    60% {
+        content: ":36";
+    }
+
+    61.6666666667% {
+        content: ":37";
+    }
+
+    63.3333333333% {
+        content: ":38";
+    }
+
+    65% {
+        content: ":39";
+    }
+
+    66.6666666667% {
+        content: ":40";
+    }
+
+    68.3333333333% {
+        content: ":41";
+    }
+
+    70% {
+        content: ":42";
+    }
+
+    71.6666666667% {
+        content: ":43";
+    }
+
+    73.3333333333% {
+        content: ":44";
+    }
+
+    75% {
+        content: ":45";
+    }
+
+    76.6666666667% {
+        content: ":46";
+    }
+
+    78.3333333333% {
+        content: ":47";
+    }
+
+    80% {
+        content: ":48";
+    }
+
+    81.6666666667% {
+        content: ":49";
+    }
+
+    83.3333333333% {
+        content: ":50";
+    }
+
+    85% {
+        content: ":51";
+    }
+
+    86.6666666667% {
+        content: ":52";
+    }
+
+    88.3333333333% {
+        content: ":53";
+    }
+
+    90% {
+        content: ":54";
+    }
+
+    91.6666666667% {
+        content: ":55";
+    }
+
+    93.3333333333% {
+        content: ":56";
+    }
+
+    95% {
+        content: ":57";
+    }
+
+    96.6666666667% {
+        content: ":58";
+    }
+
+    98.3333333333% {
+        content: ":59";
+    }
+}
+
+@-webkit-keyframes to_100 {
+    1% {
+        content: ":01";
+    }
+
+    2% {
+        content: ":02";
+    }
+
+    3% {
+        content: ":03";
+    }
+
+    4% {
+        content: ":04";
+    }
+
+    5% {
+        content: ":05";
+    }
+
+    6% {
+        content: ":06";
+    }
+
+    7% {
+        content: ":07";
+    }
+
+    8% {
+        content: ":08";
+    }
+
+    9% {
+        content: ":09";
+    }
+
+    10% {
+        content: ":10";
+    }
+
+    11% {
+        content: ":11";
+    }
+
+    12% {
+        content: ":12";
+    }
+
+    13% {
+        content: ":13";
+    }
+
+    14% {
+        content: ":14";
+    }
+
+    15% {
+        content: ":15";
+    }
+
+    16% {
+        content: ":16";
+    }
+
+    17% {
+        content: ":17";
+    }
+
+    18% {
+        content: ":18";
+    }
+
+    19% {
+        content: ":19";
+    }
+
+    20% {
+        content: ":20";
+    }
+
+    21% {
+        content: ":21";
+    }
+
+    22% {
+        content: ":22";
+    }
+
+    23% {
+        content: ":23";
+    }
+
+    24% {
+        content: ":24";
+    }
+
+    25% {
+        content: ":25";
+    }
+
+    26% {
+        content: ":26";
+    }
+
+    27% {
+        content: ":27";
+    }
+
+    28% {
+        content: ":28";
+    }
+
+    29% {
+        content: ":29";
+    }
+
+    30% {
+        content: ":30";
+    }
+
+    31% {
+        content: ":31";
+    }
+
+    32% {
+        content: ":32";
+    }
+
+    33% {
+        content: ":33";
+    }
+
+    34% {
+        content: ":34";
+    }
+
+    35% {
+        content: ":35";
+    }
+
+    36% {
+        content: ":36";
+    }
+
+    37% {
+        content: ":37";
+    }
+
+    38% {
+        content: ":38";
+    }
+
+    39% {
+        content: ":39";
+    }
+
+    40% {
+        content: ":40";
+    }
+
+    41% {
+        content: ":41";
+    }
+
+    42% {
+        content: ":42";
+    }
+
+    43% {
+        content: ":43";
+    }
+
+    44% {
+        content: ":44";
+    }
+
+    45% {
+        content: ":45";
+    }
+
+    46% {
+        content: ":46";
+    }
+
+    47% {
+        content: ":47";
+    }
+
+    48% {
+        content: ":48";
+    }
+
+    49% {
+        content: ":49";
+    }
+
+    50% {
+        content: ":50";
+    }
+
+    51% {
+        content: ":51";
+    }
+
+    52% {
+        content: ":52";
+    }
+
+    53% {
+        content: ":53";
+    }
+
+    54% {
+        content: ":54";
+    }
+
+    55% {
+        content: ":55";
+    }
+
+    56% {
+        content: ":56";
+    }
+
+    57% {
+        content: ":57";
+    }
+
+    58% {
+        content: ":58";
+    }
+
+    59% {
+        content: ":59";
+    }
+
+    60% {
+        content: ":60";
+    }
+
+    61% {
+        content: ":61";
+    }
+
+    62% {
+        content: ":62";
+    }
+
+    63% {
+        content: ":63";
+    }
+
+    64% {
+        content: ":64";
+    }
+
+    65% {
+        content: ":65";
+    }
+
+    66% {
+        content: ":66";
+    }
+
+    67% {
+        content: ":67";
+    }
+
+    68% {
+        content: ":68";
+    }
+
+    69% {
+        content: ":69";
+    }
+
+    70% {
+        content: ":70";
+    }
+
+    71% {
+        content: ":71";
+    }
+
+    72% {
+        content: ":72";
+    }
+
+    73% {
+        content: ":73";
+    }
+
+    74% {
+        content: ":74";
+    }
+
+    75% {
+        content: ":75";
+    }
+
+    76% {
+        content: ":76";
+    }
+
+    77% {
+        content: ":77";
+    }
+
+    78% {
+        content: ":78";
+    }
+
+    79% {
+        content: ":79";
+    }
+
+    80% {
+        content: ":80";
+    }
+
+    81% {
+        content: ":81";
+    }
+
+    82% {
+        content: ":82";
+    }
+
+    83% {
+        content: ":83";
+    }
+
+    84% {
+        content: ":84";
+    }
+
+    85% {
+        content: ":85";
+    }
+
+    86% {
+        content: ":86";
+    }
+
+    87% {
+        content: ":87";
+    }
+
+    88% {
+        content: ":88";
+    }
+
+    89% {
+        content: ":89";
+    }
+
+    90% {
+        content: ":90";
+    }
+
+    91% {
+        content: ":91";
+    }
+
+    92% {
+        content: ":92";
+    }
+
+    93% {
+        content: ":93";
+    }
+
+    94% {
+        content: ":94";
+    }
+
+    95% {
+        content: ":95";
+    }
+
+    96% {
+        content: ":96";
+    }
+
+    97% {
+        content: ":97";
+    }
+
+    98% {
+        content: ":98";
+    }
+
+    99% {
+        content: ":99";
+    }
+}
+
+@-moz-keyframes to_100 {
+    1% {
+        content: ":01";
+    }
+
+    2% {
+        content: ":02";
+    }
+
+    3% {
+        content: ":03";
+    }
+
+    4% {
+        content: ":04";
+    }
+
+    5% {
+        content: ":05";
+    }
+
+    6% {
+        content: ":06";
+    }
+
+    7% {
+        content: ":07";
+    }
+
+    8% {
+        content: ":08";
+    }
+
+    9% {
+        content: ":09";
+    }
+
+    10% {
+        content: ":10";
+    }
+
+    11% {
+        content: ":11";
+    }
+
+    12% {
+        content: ":12";
+    }
+
+    13% {
+        content: ":13";
+    }
+
+    14% {
+        content: ":14";
+    }
+
+    15% {
+        content: ":15";
+    }
+
+    16% {
+        content: ":16";
+    }
+
+    17% {
+        content: ":17";
+    }
+
+    18% {
+        content: ":18";
+    }
+
+    19% {
+        content: ":19";
+    }
+
+    20% {
+        content: ":20";
+    }
+
+    21% {
+        content: ":21";
+    }
+
+    22% {
+        content: ":22";
+    }
+
+    23% {
+        content: ":23";
+    }
+
+    24% {
+        content: ":24";
+    }
+
+    25% {
+        content: ":25";
+    }
+
+    26% {
+        content: ":26";
+    }
+
+    27% {
+        content: ":27";
+    }
+
+    28% {
+        content: ":28";
+    }
+
+    29% {
+        content: ":29";
+    }
+
+    30% {
+        content: ":30";
+    }
+
+    31% {
+        content: ":31";
+    }
+
+    32% {
+        content: ":32";
+    }
+
+    33% {
+        content: ":33";
+    }
+
+    34% {
+        content: ":34";
+    }
+
+    35% {
+        content: ":35";
+    }
+
+    36% {
+        content: ":36";
+    }
+
+    37% {
+        content: ":37";
+    }
+
+    38% {
+        content: ":38";
+    }
+
+    39% {
+        content: ":39";
+    }
+
+    40% {
+        content: ":40";
+    }
+
+    41% {
+        content: ":41";
+    }
+
+    42% {
+        content: ":42";
+    }
+
+    43% {
+        content: ":43";
+    }
+
+    44% {
+        content: ":44";
+    }
+
+    45% {
+        content: ":45";
+    }
+
+    46% {
+        content: ":46";
+    }
+
+    47% {
+        content: ":47";
+    }
+
+    48% {
+        content: ":48";
+    }
+
+    49% {
+        content: ":49";
+    }
+
+    50% {
+        content: ":50";
+    }
+
+    51% {
+        content: ":51";
+    }
+
+    52% {
+        content: ":52";
+    }
+
+    53% {
+        content: ":53";
+    }
+
+    54% {
+        content: ":54";
+    }
+
+    55% {
+        content: ":55";
+    }
+
+    56% {
+        content: ":56";
+    }
+
+    57% {
+        content: ":57";
+    }
+
+    58% {
+        content: ":58";
+    }
+
+    59% {
+        content: ":59";
+    }
+
+    60% {
+        content: ":60";
+    }
+
+    61% {
+        content: ":61";
+    }
+
+    62% {
+        content: ":62";
+    }
+
+    63% {
+        content: ":63";
+    }
+
+    64% {
+        content: ":64";
+    }
+
+    65% {
+        content: ":65";
+    }
+
+    66% {
+        content: ":66";
+    }
+
+    67% {
+        content: ":67";
+    }
+
+    68% {
+        content: ":68";
+    }
+
+    69% {
+        content: ":69";
+    }
+
+    70% {
+        content: ":70";
+    }
+
+    71% {
+        content: ":71";
+    }
+
+    72% {
+        content: ":72";
+    }
+
+    73% {
+        content: ":73";
+    }
+
+    74% {
+        content: ":74";
+    }
+
+    75% {
+        content: ":75";
+    }
+
+    76% {
+        content: ":76";
+    }
+
+    77% {
+        content: ":77";
+    }
+
+    78% {
+        content: ":78";
+    }
+
+    79% {
+        content: ":79";
+    }
+
+    80% {
+        content: ":80";
+    }
+
+    81% {
+        content: ":81";
+    }
+
+    82% {
+        content: ":82";
+    }
+
+    83% {
+        content: ":83";
+    }
+
+    84% {
+        content: ":84";
+    }
+
+    85% {
+        content: ":85";
+    }
+
+    86% {
+        content: ":86";
+    }
+
+    87% {
+        content: ":87";
+    }
+
+    88% {
+        content: ":88";
+    }
+
+    89% {
+        content: ":89";
+    }
+
+    90% {
+        content: ":90";
+    }
+
+    91% {
+        content: ":91";
+    }
+
+    92% {
+        content: ":92";
+    }
+
+    93% {
+        content: ":93";
+    }
+
+    94% {
+        content: ":94";
+    }
+
+    95% {
+        content: ":95";
+    }
+
+    96% {
+        content: ":96";
+    }
+
+    97% {
+        content: ":97";
+    }
+
+    98% {
+        content: ":98";
+    }
+
+    99% {
+        content: ":99";
+    }
+}
+
+@-o-keyframes to_100 {
+    1% {
+        content: ":01";
+    }
+
+    2% {
+        content: ":02";
+    }
+
+    3% {
+        content: ":03";
+    }
+
+    4% {
+        content: ":04";
+    }
+
+    5% {
+        content: ":05";
+    }
+
+    6% {
+        content: ":06";
+    }
+
+    7% {
+        content: ":07";
+    }
+
+    8% {
+        content: ":08";
+    }
+
+    9% {
+        content: ":09";
+    }
+
+    10% {
+        content: ":10";
+    }
+
+    11% {
+        content: ":11";
+    }
+
+    12% {
+        content: ":12";
+    }
+
+    13% {
+        content: ":13";
+    }
+
+    14% {
+        content: ":14";
+    }
+
+    15% {
+        content: ":15";
+    }
+
+    16% {
+        content: ":16";
+    }
+
+    17% {
+        content: ":17";
+    }
+
+    18% {
+        content: ":18";
+    }
+
+    19% {
+        content: ":19";
+    }
+
+    20% {
+        content: ":20";
+    }
+
+    21% {
+        content: ":21";
+    }
+
+    22% {
+        content: ":22";
+    }
+
+    23% {
+        content: ":23";
+    }
+
+    24% {
+        content: ":24";
+    }
+
+    25% {
+        content: ":25";
+    }
+
+    26% {
+        content: ":26";
+    }
+
+    27% {
+        content: ":27";
+    }
+
+    28% {
+        content: ":28";
+    }
+
+    29% {
+        content: ":29";
+    }
+
+    30% {
+        content: ":30";
+    }
+
+    31% {
+        content: ":31";
+    }
+
+    32% {
+        content: ":32";
+    }
+
+    33% {
+        content: ":33";
+    }
+
+    34% {
+        content: ":34";
+    }
+
+    35% {
+        content: ":35";
+    }
+
+    36% {
+        content: ":36";
+    }
+
+    37% {
+        content: ":37";
+    }
+
+    38% {
+        content: ":38";
+    }
+
+    39% {
+        content: ":39";
+    }
+
+    40% {
+        content: ":40";
+    }
+
+    41% {
+        content: ":41";
+    }
+
+    42% {
+        content: ":42";
+    }
+
+    43% {
+        content: ":43";
+    }
+
+    44% {
+        content: ":44";
+    }
+
+    45% {
+        content: ":45";
+    }
+
+    46% {
+        content: ":46";
+    }
+
+    47% {
+        content: ":47";
+    }
+
+    48% {
+        content: ":48";
+    }
+
+    49% {
+        content: ":49";
+    }
+
+    50% {
+        content: ":50";
+    }
+
+    51% {
+        content: ":51";
+    }
+
+    52% {
+        content: ":52";
+    }
+
+    53% {
+        content: ":53";
+    }
+
+    54% {
+        content: ":54";
+    }
+
+    55% {
+        content: ":55";
+    }
+
+    56% {
+        content: ":56";
+    }
+
+    57% {
+        content: ":57";
+    }
+
+    58% {
+        content: ":58";
+    }
+
+    59% {
+        content: ":59";
+    }
+
+    60% {
+        content: ":60";
+    }
+
+    61% {
+        content: ":61";
+    }
+
+    62% {
+        content: ":62";
+    }
+
+    63% {
+        content: ":63";
+    }
+
+    64% {
+        content: ":64";
+    }
+
+    65% {
+        content: ":65";
+    }
+
+    66% {
+        content: ":66";
+    }
+
+    67% {
+        content: ":67";
+    }
+
+    68% {
+        content: ":68";
+    }
+
+    69% {
+        content: ":69";
+    }
+
+    70% {
+        content: ":70";
+    }
+
+    71% {
+        content: ":71";
+    }
+
+    72% {
+        content: ":72";
+    }
+
+    73% {
+        content: ":73";
+    }
+
+    74% {
+        content: ":74";
+    }
+
+    75% {
+        content: ":75";
+    }
+
+    76% {
+        content: ":76";
+    }
+
+    77% {
+        content: ":77";
+    }
+
+    78% {
+        content: ":78";
+    }
+
+    79% {
+        content: ":79";
+    }
+
+    80% {
+        content: ":80";
+    }
+
+    81% {
+        content: ":81";
+    }
+
+    82% {
+        content: ":82";
+    }
+
+    83% {
+        content: ":83";
+    }
+
+    84% {
+        content: ":84";
+    }
+
+    85% {
+        content: ":85";
+    }
+
+    86% {
+        content: ":86";
+    }
+
+    87% {
+        content: ":87";
+    }
+
+    88% {
+        content: ":88";
+    }
+
+    89% {
+        content: ":89";
+    }
+
+    90% {
+        content: ":90";
+    }
+
+    91% {
+        content: ":91";
+    }
+
+    92% {
+        content: ":92";
+    }
+
+    93% {
+        content: ":93";
+    }
+
+    94% {
+        content: ":94";
+    }
+
+    95% {
+        content: ":95";
+    }
+
+    96% {
+        content: ":96";
+    }
+
+    97% {
+        content: ":97";
+    }
+
+    98% {
+        content: ":98";
+    }
+
+    99% {
+        content: ":99";
+    }
+}
+
+@keyframes to_100 {
+    1% {
+        content: ":01";
+    }
+
+    2% {
+        content: ":02";
+    }
+
+    3% {
+        content: ":03";
+    }
+
+    4% {
+        content: ":04";
+    }
+
+    5% {
+        content: ":05";
+    }
+
+    6% {
+        content: ":06";
+    }
+
+    7% {
+        content: ":07";
+    }
+
+    8% {
+        content: ":08";
+    }
+
+    9% {
+        content: ":09";
+    }
+
+    10% {
+        content: ":10";
+    }
+
+    11% {
+        content: ":11";
+    }
+
+    12% {
+        content: ":12";
+    }
+
+    13% {
+        content: ":13";
+    }
+
+    14% {
+        content: ":14";
+    }
+
+    15% {
+        content: ":15";
+    }
+
+    16% {
+        content: ":16";
+    }
+
+    17% {
+        content: ":17";
+    }
+
+    18% {
+        content: ":18";
+    }
+
+    19% {
+        content: ":19";
+    }
+
+    20% {
+        content: ":20";
+    }
+
+    21% {
+        content: ":21";
+    }
+
+    22% {
+        content: ":22";
+    }
+
+    23% {
+        content: ":23";
+    }
+
+    24% {
+        content: ":24";
+    }
+
+    25% {
+        content: ":25";
+    }
+
+    26% {
+        content: ":26";
+    }
+
+    27% {
+        content: ":27";
+    }
+
+    28% {
+        content: ":28";
+    }
+
+    29% {
+        content: ":29";
+    }
+
+    30% {
+        content: ":30";
+    }
+
+    31% {
+        content: ":31";
+    }
+
+    32% {
+        content: ":32";
+    }
+
+    33% {
+        content: ":33";
+    }
+
+    34% {
+        content: ":34";
+    }
+
+    35% {
+        content: ":35";
+    }
+
+    36% {
+        content: ":36";
+    }
+
+    37% {
+        content: ":37";
+    }
+
+    38% {
+        content: ":38";
+    }
+
+    39% {
+        content: ":39";
+    }
+
+    40% {
+        content: ":40";
+    }
+
+    41% {
+        content: ":41";
+    }
+
+    42% {
+        content: ":42";
+    }
+
+    43% {
+        content: ":43";
+    }
+
+    44% {
+        content: ":44";
+    }
+
+    45% {
+        content: ":45";
+    }
+
+    46% {
+        content: ":46";
+    }
+
+    47% {
+        content: ":47";
+    }
+
+    48% {
+        content: ":48";
+    }
+
+    49% {
+        content: ":49";
+    }
+
+    50% {
+        content: ":50";
+    }
+
+    51% {
+        content: ":51";
+    }
+
+    52% {
+        content: ":52";
+    }
+
+    53% {
+        content: ":53";
+    }
+
+    54% {
+        content: ":54";
+    }
+
+    55% {
+        content: ":55";
+    }
+
+    56% {
+        content: ":56";
+    }
+
+    57% {
+        content: ":57";
+    }
+
+    58% {
+        content: ":58";
+    }
+
+    59% {
+        content: ":59";
+    }
+
+    60% {
+        content: ":60";
+    }
+
+    61% {
+        content: ":61";
+    }
+
+    62% {
+        content: ":62";
+    }
+
+    63% {
+        content: ":63";
+    }
+
+    64% {
+        content: ":64";
+    }
+
+    65% {
+        content: ":65";
+    }
+
+    66% {
+        content: ":66";
+    }
+
+    67% {
+        content: ":67";
+    }
+
+    68% {
+        content: ":68";
+    }
+
+    69% {
+        content: ":69";
+    }
+
+    70% {
+        content: ":70";
+    }
+
+    71% {
+        content: ":71";
+    }
+
+    72% {
+        content: ":72";
+    }
+
+    73% {
+        content: ":73";
+    }
+
+    74% {
+        content: ":74";
+    }
+
+    75% {
+        content: ":75";
+    }
+
+    76% {
+        content: ":76";
+    }
+
+    77% {
+        content: ":77";
+    }
+
+    78% {
+        content: ":78";
+    }
+
+    79% {
+        content: ":79";
+    }
+
+    80% {
+        content: ":80";
+    }
+
+    81% {
+        content: ":81";
+    }
+
+    82% {
+        content: ":82";
+    }
+
+    83% {
+        content: ":83";
+    }
+
+    84% {
+        content: ":84";
+    }
+
+    85% {
+        content: ":85";
+    }
+
+    86% {
+        content: ":86";
+    }
+
+    87% {
+        content: ":87";
+    }
+
+    88% {
+        content: ":88";
+    }
+
+    89% {
+        content: ":89";
+    }
+
+    90% {
+        content: ":90";
+    }
+
+    91% {
+        content: ":91";
+    }
+
+    92% {
+        content: ":92";
+    }
+
+    93% {
+        content: ":93";
+    }
+
+    94% {
+        content: ":94";
+    }
+
+    95% {
+        content: ":95";
+    }
+
+    96% {
+        content: ":96";
+    }
+
+    97% {
+        content: ":97";
+    }
+
+    98% {
+        content: ":98";
+    }
+
+    99% {
+        content: ":99";
+    }
+}
+
+@-webkit-keyframes time {
+    to {
+        top: 100%;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes time {
+    to {
+        top: 100%;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes time {
+    to {
+        top: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes time {
+    to {
+        top: 100%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes stop {
+    70% {
+        border-radius: 6px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 18px;
+        height: 18px;
+        margin: -30px -30px;
+    }
+
+    100% {
+        border-radius: 6px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -70px -1px;
+    }
+}
+
+@-moz-keyframes stop {
+    70% {
+        border-radius: 6px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 18px;
+        height: 18px;
+        margin: -30px -30px;
+    }
+
+    100% {
+        border-radius: 6px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -70px -1px;
+    }
+}
+
+@-o-keyframes stop {
+    70% {
+        border-radius: 6px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 18px;
+        height: 18px;
+        margin: -30px -30px;
+    }
+
+    100% {
+        border-radius: 6px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -70px -1px;
+    }
+}
+
+@keyframes stop {
+    70% {
+        border-radius: 6px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 18px;
+        height: 18px;
+        margin: -30px -30px;
+    }
+
+    100% {
+        border-radius: 6px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -70px -1px;
+    }
+}
+
+
+
+
+.blinking {
+    -webkit-animation: 1s blink ease infinite;
+    -moz-animation: 1s blink ease infinite;
+    -ms-animation: 1s blink ease infinite;
+    -o-animation: 1s blink ease infinite;
+    animation: 1s blink ease infinite;
+}
+
+@keyframes blink {
+    from, to {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes blink {
+    from, to {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blink {
+    from, to {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes blink {
+    from, to {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes blink {
+    from, to {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.recorder-container {
+    position: relative;
+    margin-left: -25px;
+}
+
+    .recorder-container #btn {
+        display: none;
+    }
+
+        .recorder-container #btn + label:before {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            content: "";
+            -webkit-transform: translate(-6px, -6px);
+            -ms-transform: translate(-6px, -6px);
+            transform: translate(-6px, -6px);
+            border-radius: 50%;
+            border: 2px solid #878787;
+            cursor: pointer;
+        }
+
+        .recorder-container #btn + label:after {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 26px;
+            height: 26px;
+            margin: 1px 1px;
+            content: "";
+            border-radius: 50px;
+            background: #00d341;
+            cursor: pointer;
+        }
+div.recorder-container.recording #btn + label:after {
+    background: #dd0000;
+}
+
+.recorder-container #btn:checked + label:after {
+    -webkit-animation: 1s blink ease infinite;
+    -moz-animation: 1s blink ease infinite;
+    -ms-animation: 1s blink ease infinite;
+    -o-animation: 1s blink ease infinite;
+    animation: 1s blink ease infinite;
+}
+
+        .recorder-container #btn:checked ~ .time {
+            -webkit-animation: time 0.3s infinite linear;
+            -moz-animation: time 0.3s infinite linear;
+            -o-animation: time 0.3s infinite linear;
+            animation: time 0.3s infinite linear;
+            -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            animation-delay: 0.3s;
+        }
+
+            .recorder-container #btn:checked ~ .time .h_m:after {
+                -webkit-animation: to_24 86400s infinite linear;
+                -moz-animation: to_24 86400s infinite linear;
+                -o-animation: to_24 86400s infinite linear;
+                animation: to_24 86400s infinite linear;
+                -webkit-animation-delay: 1800s;
+                animation-delay: 1800s;
+            }
+
+            .recorder-container #btn:checked ~ .time .h_m:before {
+                -webkit-animation: to_60 3600s infinite linear;
+                -moz-animation: to_60 3600s infinite linear;
+                -o-animation: to_60 3600s infinite linear;
+                animation: to_60 3600s infinite linear;
+                -webkit-animation-delay: 30s;
+                animation-delay: 30s;
+            }
+
+            .recorder-container #btn:checked ~ .time .s_ms:before {
+                -webkit-animation: to_60 60s infinite linear;
+                -moz-animation: to_60 60s infinite linear;
+                -o-animation: to_60 60s infinite linear;
+                animation: to_60 60s infinite linear;
+                -webkit-animation-delay: 0.5s;
+                animation-delay: 0.5s;
+            }
+
+            .recorder-container #btn:checked ~ .time .s_ms:after {
+                -webkit-animation: to_100 1s infinite linear;
+                -moz-animation: to_100 1s infinite linear;
+                -o-animation: to_100 1s infinite linear;
+                animation: to_100 1s infinite linear;
+            }
+
+    .recorder-container .time {
+        position: absolute;
+        width: 100%;
+        top: 110%;
+        opacity: 0;
+    }
+
+        .recorder-container .time > * {
+            display: inline-block;
+            width: 50%;
+            margin: -2px;
+            color: #a2a2a2;
+            font-family: "Fjalla One", sans-serif;
+            font-size: 1.3em;
+        }
+
+        .recorder-container .time .h_m:after {
+            float: right;
+            position: relative;
+            content: "00";
+        }
+
+        .recorder-container .time .h_m:before {
+            float: right;
+            position: relative;
+            content: ":00";
+        }
+
+        .recorder-container .time .s_ms:before {
+            float: left;
+            position: relative;
+            content: ":00";
+        }
+
+        .recorder-container .time .s_ms:after {
+            float: left;
+            position: relative;
+            content: ":00";
+        }
+
+
+        /*-------------------------------------        DateTimepicker ------------------------------------------*/
+
+
+
+
+
+
+/*!
+ * Datetimepicker for Bootstrap 3
+ * version : 4.17.47
+ * https://github.com/Eonasdan/bootstrap-datetimepicker/
+ */
+.bootstrap-datetimepicker-widget {
+    list-style: none;
+}
+
+    .bootstrap-datetimepicker-widget.dropdown-menu {
+        display: block;
+        margin: 2px 0;
+        padding: 4px;
+        width: 19em;
+    }
+
+@media (min-width: 768px) {
+    .bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
+        width: 38em;
+    }
+}
+
+@media (min-width: 992px) {
+    .bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
+        width: 38em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
+        width: 38em;
+    }
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu:before,
+.bootstrap-datetimepicker-widget.dropdown-menu:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:before {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #ccc;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    top: -7px;
+    left: 7px;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:after {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid white;
+    top: -6px;
+    left: 8px;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu.top:before {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #ccc;
+    border-top-color: rgba(0, 0, 0, 0.2);
+    bottom: -7px;
+    left: 6px;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu.top:after {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid white;
+    bottom: -6px;
+    left: 7px;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu.pull-right:before {
+    left: auto;
+    right: 6px;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu.pull-right:after {
+    left: auto;
+    right: 7px;
+}
+
+.bootstrap-datetimepicker-widget .list-unstyled {
+    margin: 0;
+}
+
+.bootstrap-datetimepicker-widget a[data-action] {
+    padding: 6px 0;
+}
+
+    .bootstrap-datetimepicker-widget a[data-action]:active {
+        box-shadow: none;
+    }
+
+.bootstrap-datetimepicker-widget .timepicker-hour,
+.bootstrap-datetimepicker-widget .timepicker-minute,
+.bootstrap-datetimepicker-widget .timepicker-second {
+    width: 54px;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.bootstrap-datetimepicker-widget button[data-action] {
+    padding: 6px;
+}
+
+.bootstrap-datetimepicker-widget .btn[data-action="incrementHours"]::after {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    content: "Increment Hours";
+}
+
+.bootstrap-datetimepicker-widget .btn[data-action="incrementMinutes"]::after {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    content: "Increment Minutes";
+}
+
+.bootstrap-datetimepicker-widget .btn[data-action="decrementHours"]::after {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    content: "Decrement Hours";
+}
+
+.bootstrap-datetimepicker-widget .btn[data-action="decrementMinutes"]::after {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    content: "Decrement Minutes";
+}
+
+.bootstrap-datetimepicker-widget .btn[data-action="showHours"]::after {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    content: "Show Hours";
+}
+
+.bootstrap-datetimepicker-widget .btn[data-action="showMinutes"]::after {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    content: "Show Minutes";
+}
+
+.bootstrap-datetimepicker-widget .btn[data-action="togglePeriod"]::after {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    content: "Toggle AM/PM";
+}
+
+.bootstrap-datetimepicker-widget .btn[data-action="clear"]::after {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    content: "Clear the picker";
+}
+
+.bootstrap-datetimepicker-widget .btn[data-action="today"]::after {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    content: "Set the date to today";
+}
+
+.bootstrap-datetimepicker-widget .picker-switch {
+    text-align: center;
+}
+
+    .bootstrap-datetimepicker-widget .picker-switch::after {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+        content: "Toggle Date and Time Screens";
+    }
+
+    .bootstrap-datetimepicker-widget .picker-switch td {
+        padding: 0;
+        margin: 0;
+        height: auto;
+        width: auto;
+        line-height: inherit;
+    }
+
+        .bootstrap-datetimepicker-widget .picker-switch td span {
+            line-height: 2.5;
+            height: 2.5em;
+            width: 100%;
+        }
+
+.bootstrap-datetimepicker-widget table {
+    width: 100%;
+    margin: 0;
+}
+
+    .bootstrap-datetimepicker-widget table td,
+    .bootstrap-datetimepicker-widget table th {
+        text-align: center;
+        border-radius: 4px;
+    }
+
+    .bootstrap-datetimepicker-widget table th {
+        height: 20px;
+        line-height: 20px;
+        width: 20px;
+    }
+
+        .bootstrap-datetimepicker-widget table th.picker-switch {
+            width: 145px;
+        }
+
+        .bootstrap-datetimepicker-widget table th.disabled,
+        .bootstrap-datetimepicker-widget table th.disabled:hover {
+            background: none;
+            color: #777777;
+            cursor: not-allowed;
+        }
+
+        .bootstrap-datetimepicker-widget table th.prev::after {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+            content: "Previous Month";
+        }
+
+        .bootstrap-datetimepicker-widget table th.next::after {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+            content: "Next Month";
+        }
+
+    .bootstrap-datetimepicker-widget table thead tr:first-child th {
+        cursor: pointer;
+    }
+
+        .bootstrap-datetimepicker-widget table thead tr:first-child th:hover {
+            background: #eeeeee;
+        }
+
+    .bootstrap-datetimepicker-widget table td {
+        height: 54px;
+        line-height: 54px;
+        width: 54px;
+    }
+
+        .bootstrap-datetimepicker-widget table td.cw {
+            font-size: .8em;
+            height: 20px;
+            line-height: 20px;
+            color: #777777;
+        }
+
+        .bootstrap-datetimepicker-widget table td.day {
+            height: 20px;
+            line-height: 20px;
+            width: 20px;
+        }
+
+            .bootstrap-datetimepicker-widget table td.day:hover,
+            .bootstrap-datetimepicker-widget table td.hour:hover,
+            .bootstrap-datetimepicker-widget table td.minute:hover,
+            .bootstrap-datetimepicker-widget table td.second:hover {
+                background: #eeeeee;
+                cursor: pointer;
+            }
+
+        .bootstrap-datetimepicker-widget table td.old,
+        .bootstrap-datetimepicker-widget table td.new {
+            color: #777777;
+        }
+
+        .bootstrap-datetimepicker-widget table td.today {
+            position: relative;
+        }
+
+            .bootstrap-datetimepicker-widget table td.today:before {
+                content: '';
+                display: inline-block;
+                border: solid transparent;
+                border-width: 0 0 7px 7px;
+                border-bottom-color: #337ab7;
+                border-top-color: rgba(0, 0, 0, 0.2);
+                position: absolute;
+                bottom: 4px;
+                right: 4px;
+            }
+
+        .bootstrap-datetimepicker-widget table td.active,
+        .bootstrap-datetimepicker-widget table td.active:hover {
+            background-color: #337ab7;
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        }
+
+            .bootstrap-datetimepicker-widget table td.active.today:before {
+                border-bottom-color: #fff;
+            }
+
+        .bootstrap-datetimepicker-widget table td.disabled,
+        .bootstrap-datetimepicker-widget table td.disabled:hover {
+            background: none;
+            color: #777777;
+            cursor: not-allowed;
+        }
+
+        .bootstrap-datetimepicker-widget table td span {
+            display: inline-block;
+            width: 54px;
+            height: 54px;
+            line-height: 54px;
+            margin: 2px 1.5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+            .bootstrap-datetimepicker-widget table td span:hover {
+                background: #eeeeee;
+            }
+
+            .bootstrap-datetimepicker-widget table td span.active {
+                background-color: #337ab7;
+                color: #fff;
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+            }
+
+            .bootstrap-datetimepicker-widget table td span.old {
+                color: #777777;
+            }
+
+            .bootstrap-datetimepicker-widget table td span.disabled,
+            .bootstrap-datetimepicker-widget table td span.disabled:hover {
+                background: none;
+                color: #777777;
+                cursor: not-allowed;
+            }
+
+.bootstrap-datetimepicker-widget.usetwentyfour td.hour {
+    height: 27px;
+    line-height: 27px;
+}
+
+.bootstrap-datetimepicker-widget.wider {
+    width: 21em;
+}
+
+.bootstrap-datetimepicker-widget .datepicker-decades .decade {
+    line-height: 1.8em !important;
+}
+
+.input-group.date .input-group-addon {
+    cursor: pointer;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+.fit-image-cb {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 300;
+}
+.fit-image-cb input{
+    position: relative !important;
+    top: 3px !important;
+}
+.pos-top-10{
+    position: relative;
+    top: 10px;
+}
+.tab-content .tab-pane {
+    padding: 5px 15px
+}
+.top-dd-btn {
+    color: #fff;
+    top: 5px;
+    position: relative;
+    font-size: 14px;
+    font-weight: 600;
+}
+.top-dd-btn:hover {
+    color: #fff;
+}
+
+    .top-dd-btn:focus {
+        color: #fff;
+    }
+.top-dd {
+    padding: 12px 0px;
+}
+    .top-dd a {
+        border-bottom: 1px solid #e5e5e5;
+        font-size: 13px;
+        padding: 6px 15px;
+    }
+.profile-text {
+    margin-top:5px
 }

@@ -25,4 +25,18 @@ namespace IVISS_WebV2.Models
 
     }
 
+
+    public class UpdatePassword
+    {
+
+        public string id { get; set; } = "";
+       
+
+        public string password { get; set; } = "";
+
+     
+
+
+    }
+
 }

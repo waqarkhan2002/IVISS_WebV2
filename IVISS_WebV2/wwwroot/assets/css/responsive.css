@@ -231,10 +231,10 @@
     padding: 20px 8px;
   }
   .sidebar-dropdown a span {
-    text-align: center;
+    text-align: left;
     display: block;
-    margin: auto;
-    padding-right: 34px;
+    /*margin: auto;*/
+    padding-right: 10px;
     color: #666;
     font-weight: 500;
     font-size: 14px;
@@ -306,10 +306,10 @@
     padding: 20px 8px;
   }
   .sidebar-dropdown a span {
-    text-align: center;
+    text-align: left;
     display: block;
-    margin: auto;
-    padding-right: 34px;
+   /* margin: auto;*/
+    padding-right: 10px;
     color: #666;
     font-weight: 500;
     font-size: 14px;
@@ -439,7 +439,7 @@
   }
   .cmm-table-box {
     background-color: whitesmoke;
-    height: 265px;
+    height: 308px;
     overflow-y: auto;
     overflow-x: hidden;
   }

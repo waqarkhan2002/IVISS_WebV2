@@ -213,11 +213,13 @@
             success: function(response) {
                 if (response != null) {
                     if (response.id != -999) {
-                        window.localStorage.setItem("authtoken", response.jwtToken);
+                        window.sessionStorage.setItem('authtoken', response.jwtToken);
+                         window.sessionStorage.setItem('role', response.role);
                          window.location.href = '/Home/Index';
                     }
                     else {
                         document.getElementById("txtError").innerHTML = "Unable to login, Please verify username and password";
+                       
                     }
                 }
 
